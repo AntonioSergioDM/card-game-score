@@ -1,0 +1,274 @@
+/*region Light theme variables (default) */
+:root {
+    --bg-color: #fff;
+    --text-color: #000;
+    --link-color: #007bff;
+
+    --color-primary-bg: #E4B54B;
+    --color-primary-text: #0A0A0A;
+    --color-primary-hover: #D4A13A;
+    --color-primary-active: #B3842C;
+    --color-primary-disabled-bg: #D6D6D6;
+    --color-primary-disabled-text: #9A9A9A;
+
+    --color-secondary-bg: #F0F0F0;
+    --color-secondary-text: #2D2D2D;
+    --color-secondary-border: #D3D3D3;
+    --color-secondary-hover: #E0E0E0;
+    --color-secondary-active: #D0D0D0;
+    --color-secondary-disabled-bg: #F0F0F0;
+    --color-secondary-disabled-text: #B0B0B0;
+    --color-secondary-disabled-border: #E0E0E0;
+
+    --color-danger-bg: #D32F2F;
+    --color-danger-text: #F0F0F0;
+    --color-danger-hover: #B71C1C;
+    --color-danger-active: #9A0000;
+    --color-danger-disabled-bg: #FBEAEA;
+    --color-danger-disabled-text: #D32F2F;
+
+    --color-back-bg: none;
+    --color-back-text: var(--text-color);
+    --color-back-hover: #4A4A4A;
+    --color-back-active: #1C1C1C;
+    --color-back-disabled-bg: none;
+    --color-back-disabled-text: #5A5A5A;
+}
+
+.img--light-reverse {
+    filter: invert(1);
+}
+.img--dark-reverse {
+    filter: invert(0);
+}
+/*endregion*/
+
+/*region Dark theme variables */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #0a0a0a;
+        --text-color: #F0F0F0 ;
+        --link-color: #66b3ff;
+
+        --color-primary-bg: #E4B54B;
+        --color-primary-text: #0A0A0A;
+        --color-primary-hover: #D4A13A;
+        --color-primary-active: #B3842C;
+        --color-primary-disabled-bg: #6C572D;
+        --color-primary-disabled-text: #9C9C9C;
+
+        --color-secondary-bg: #2D2D2D;
+        --color-secondary-text: #F0F0F0;
+        --color-secondary-border: none;
+        --color-secondary-hover: #4A4A4A;
+        --color-secondary-active: #1C1C1C;
+        --color-secondary-disabled-bg: #2D2D2D;
+        --color-secondary-disabled-text: #5A5A5A;
+
+        --color-danger-bg: #D32F2F;
+        --color-danger-text: #F0F0F0;
+        --color-danger-hover: #B71C1C;
+        --color-danger-active: #9A0000;
+        --color-danger-disabled-bg: #5A1919;
+        --color-danger-disabled-text: #7A7A7A;
+    }
+
+    .img--light-reverse {
+        filter: invert(0);
+    }
+
+    .img--dark-reverse {
+        filter: invert(1);
+    }
+}
+/*endregion*/
+
+/*region Resets */
+button, input[type="submit"], input[type="reset"] {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+/*endregion*/
+
+/*region Common styles */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    margin-bottom: 10rem;
+    font-size: 4rem;
+}
+
+a {
+    color: var(--link-color);
+}
+
+/*region Buttons */
+
+.button {
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 0.5rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.button__icon {
+    height: 1rem;
+    width: 1rem;
+}
+
+.button__icon--big {
+    height: 3rem;
+    width: 3rem;
+}
+
+.button:disabled {
+    cursor: not-allowed;
+}
+
+/*region Primary Button */
+.button--primary {
+    background-color: var(--color-primary-bg);
+    color: var(--color-primary-text);
+}
+
+.button--primary:hover, .button--primary:focus {
+    background-color: var(--color-primary-hover);
+}
+
+.button--primary:active {
+    background-color: var(--color-primary-active);
+}
+
+.button--primary:disabled {
+    background-color: var(--color-primary-disabled-bg);
+    color: var(--color-primary-disabled-text);
+}
+
+/*endregion*/
+
+/*region Secondary Button */
+.button--secondary {
+    background-color: var(--color-secondary-bg);
+    color: var(--color-secondary-text);
+    border: var(--color-secondary-border);
+}
+
+.button--secondary:hover, .button--secondary:focus {
+    background-color: var(--color-secondary-hover);
+}
+
+.button--secondary:active {
+    background-color: var(--color-secondary-active);
+}
+
+.button--secondary:disabled {
+    background-color: var(--color-secondary-disabled-bg);
+    color: var(--color-secondary-disabled-text);
+    border: var(--color-secondary-disabled-border);
+}
+
+/*endregion*/
+
+/*region Danger Button */
+.button--danger {
+    background-color: var(--color-danger-bg);
+    color: var(--color-danger-text);
+}
+
+.button--danger:hover, .button--danger:focus {
+    background-color: var(--color-danger-hover);
+}
+
+.button--danger:active {
+    background-color: var(--color-danger-active);
+}
+
+.button--danger:disabled {
+    background-color: var(--color-danger-disabled-bg);
+    color: var(--color-danger-disabled-text);
+}
+
+/*endregion*/
+
+/*region Back Button */
+.button--back {
+    background-color: var(--color-back-bg);
+    color: var(--color-back-text);
+}
+
+.button--back:hover, .button--back:focus {
+    background-color: var(--color-back-hover);
+}
+
+.button--back:active {
+    background-color: var(--color-back-active);
+}
+
+.button--back:disabled {
+    background-color: var(--color-back-disabled-bg);
+    color: var(--color-back-disabled-text);
+}
+/*endregion*/
+/*endregion*/
+
+/*region Section*/
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.section__row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+}
+/*endregion*/
+
+/*region Footer*/
+.footer {
+    margin-top: auto;
+}
+/*endregion*/
+
+
+/*region Utilities*/
+/*region Position*/
+.absolute {
+    position: absolute;
+}
+
+.absolute--startish {
+    left: 1rem;
+    top: 1rem;
+}
+
+.relative {
+    position: relative;
+}
+/*endregion*/

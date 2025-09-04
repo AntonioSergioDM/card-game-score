@@ -1,0 +1,36 @@
+h1 {
+    margin-top: -6rem;
+}
+
+.logo--big{
+    margin-top: -4rem;
+}
+
+
+.game__holder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
+.game__link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    text-decoration:none
+}
+
+.game__image {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 1rem;
+}
+
+.game__title {
+    font-size: 2rem;
+    color: var(--text-color);
+}
