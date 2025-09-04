@@ -5,6 +5,7 @@ common = function () {
     // Values
     let storageName;
     let score = {};
+    let wasChanged = true;
     const init = () => {
         //For Dev
         if (window.location.href.indexOf('?')<0) {
@@ -65,10 +66,14 @@ common = function () {
             return;
         }
 
+        wasChanged = true;
         score = JSON.parse(json) || {};
     }
 
     const save = (object) => {
+        score = object;
+        wasChanged = true;
+
         const json = JSON.stringify(object);
         localStorage.setItem(storageName, json);
     }
@@ -76,6 +81,9 @@ common = function () {
     return {
         init: init,
         save: save,
+
+        hasChanges: () => wasChanged && !(wasChanged = false),
+        getScore: () => score,
     };
 }();
 
