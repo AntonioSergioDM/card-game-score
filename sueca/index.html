@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/icons/favicon-16x16.png">
+    <link rel="stylesheet" type="text/css" href="../css/theme.css?v=0.1">
+    <link rel="stylesheet" type="text/css" href="sueca.css?v=0.1">
+    <script type="text/javascript" src="../js/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" defer src="../js/common.js?v=0.1"></script>
+    <script type="text/javascript" defer src="sueca.js?v=0.1"></script>
+    <title>Sueca Score</title>
+</head>
+<body>
+<h1>Sueca Score</h1>
+<!-- Common Stuff -->
+<button class="button button--big button--back absolute absolute--startish" id="menuBtn">
+    <img class="button__icon button__icon--big img--dark-reverse" src="../assets/back-button.svg" alt="back to menu">
+</button>
+<div id="loadPreviousScore" data-game="sueca" class="section" style="display: none">
+    <h2>Continue where you left off?</h2>
+    <div class="section__row">
+        <button class="button button--secondary" id="restoreScoreBtn">Restore Score</button>
+        <button class="button button--primary" id="newScoreBtn">New Score</button>
+    </div>
+</div>
+<div id="newScore" class="section" style="display: none">
+    <!-- Game Specific Stuff in here -->
+    <h2>Which mode to use</h2>
+    <div class="section__row">
+        <button class="button button--secondary" id="startUnlimitedScore">Unlimited</button>
+        <button class="button button--primary" id="startNormalScore">Normal</button>
+    </div>
+</div>
+
+<div class="footer">&copy;2025 António Sérgio</div>
+</body>
+</html>

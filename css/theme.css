@@ -256,6 +256,17 @@ a {
 }
 /*endregion*/
 
+/*region Divider*/
+.divider {
+    border: 1px solid var(--text-color);
+    height: 100%;
+}
+
+.divider--horizontal {
+    width: 100%;
+    height: 0px;
+}
+/*endregion*/
 
 /*region Utilities*/
 /*region Position*/

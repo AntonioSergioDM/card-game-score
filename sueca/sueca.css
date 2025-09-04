@@ -1,0 +1,42 @@
+.board {
+    display: flex;
+    align-items: center;
+    height: 7rem;
+}
+
+.player {
+    padding: 1rem;
+    font-size: 2rem;
+}
+
+.unit {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 80%;
+}
+
+.point {
+    flex-shrink: 0;
+    border-radius: 9999999px;
+    width: 1rem;
+    height: 1rem;
+}
+
+.point--active {
+    background-color: var(--text-color);
+}
+
+.point--first {
+    border-right: 1.1rem solid var(--text-color);
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.point--last {
+    border-left: 1.1rem solid var(--text-color);
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
