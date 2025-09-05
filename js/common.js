@@ -8,9 +8,9 @@ common = function () {
     let wasChanged = true;
     const init = () => {
         //For Dev
-        if (window.location.href.indexOf('?')<0) {
+        /*if (window.location.href.indexOf('?')<0) {
             window.location.href = window.location.href+'?_ijt=uju87a1n3fgntapsr0m6ht10nr&_ij_reload=RELOAD_ON_SAVE';
-        }
+        }*/
 
         loadPreviousHolder = $('#loadPreviousScore');
         loadPreviousBtn = $('#restoreScoreBtn');
