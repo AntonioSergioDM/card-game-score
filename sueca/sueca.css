@@ -16,11 +16,12 @@
     align-items: center;
     width: 2rem;
     height: 80%;
+    position: relative;
 }
 
 .point {
     flex-shrink: 0;
-    border-radius: 9999999px;
+    border-radius: 100%;
     width: 1rem;
     height: 1rem;
 }
@@ -39,4 +40,22 @@
     border-left: 1.1rem solid var(--text-color);
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
+}
+
+.win {
+    border-radius: 50%;
+    position: absolute;
+    flex-shrink: 0;
+    height: 2rem;
+    width: 6.2rem;
+    outline: 1px solid var(--text-color);
+    left: -6.2rem;
+}
+
+.win--up {
+    top:-0.5rem;
+}
+
+.win--down {
+    bottom:-0.5rem;
 }

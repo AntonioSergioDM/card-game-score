@@ -1,6 +1,16 @@
 sueca = function () {
     // Elements
     let gameHolder, startUnlimitedBtn, startNormalBtn;
+
+    // Helper variables
+    let currentUnit = false;
+    let upGames = [];
+    let downGames = [];
+
+
+    /* Initialization */
+
+
     const init = () => {
         gameHolder = $('#newScore');
         startNormalBtn = $('#startNormalScore');
@@ -16,6 +26,8 @@ sueca = function () {
         gameHolder.on('click', addPoint);
     };
 
+    /* Game Logic */
+
     const addPoint = (evt) => {
         var player = +$(evt.target).closest('.player').data('player');
 
@@ -29,6 +41,8 @@ sueca = function () {
 
         const currentPosition = getCurrentPosition(score['score' + player], score['score' + (player === 1 ? 2 : 1)], score.type);
 
+
+        // TODO deal with multiple points
         score['score' + player][currentPosition] = true;
         score['score' + (player === 1 ? 2 : 1)][currentPosition] = score['score' + (player === 1 ? 2 : 1)][currentPosition] || false;
 
@@ -67,6 +81,8 @@ sueca = function () {
         return opponentLast - not_sure_what_to_call_it;
     }
 
+    /* Drawing */
+
     const drawScore = () => {
         if (!common.hasChanges()) {
             return
@@ -92,16 +108,17 @@ sueca = function () {
 </div>
         `);
 
-
+        closeGames(upGames, 'up');
+        closeGames(downGames, 'down');
     }
 
     const buildUnit = (up, down) => {
         if (up === undefined && down === undefined) {
-            return `<div class="unit"><div class="divider divider--horizontal"></div></div>`;
+            return `<div class="unit" data-unit="${currentUnit}"><div class="divider divider--horizontal"></div></div>`;
         }
 
         return `
-<div class="unit">
+<div class="unit" data-unit="${currentUnit}">
     <div class="${getPointClasses(up)}"></div>
     <div class="divider"></div>
     <div class="divider divider--horizontal"></div>
@@ -111,11 +128,31 @@ sueca = function () {
         `;
     }
 
+    const closeGames = (games, position) => {
+        const html = `<div class="win win--${position}"></div>`;
+        games.forEach((game) => {
+            $(`[data-unit="${game}"]`).append(html);
+        });
+    }
+
+    /* Drawing Logic */
+
     const buildFromScores = (scoreUp, scoreDown, type) => {
         let html = buildUnit();
+        upGames = [];
+        downGames = [];
         for (let i = 0; i < scoreUp.length; i++) {
+            currentUnit = i;
             if (type !== 'unlimited' && (i + 1) % 4 === 0) {
-                // TODO close the previous game
+                // every fourth point means a game is over
+                if (scoreUp[i]) {
+                    upGames.push(i)
+                }
+
+                if (scoreDown[i]) {
+                    downGames.push(i)
+                }
+
                 html += buildUnit();
                 continue;
             }
@@ -123,8 +160,12 @@ sueca = function () {
             html += buildUnit(scoreUp[i], scoreDown[i]);
         }
 
+        currentUnit = false;
+
         return html + buildUnit();
     }
+
+    /* Helpers */
 
     const getPointClasses = (point) => {
         let classes = 'point';
