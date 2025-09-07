@@ -41,6 +41,7 @@
 .light-only {
     display: block;
 }
+
 /*endregion*/
 
 /*region Dark theme variables */
@@ -78,6 +79,10 @@
     }
     .dark-only {
         display: block;
+    }
+
+    .img--dark-reverse {
+        filter: invert(1);
     }
 }
 /*endregion*/
