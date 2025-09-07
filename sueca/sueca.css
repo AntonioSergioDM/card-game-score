@@ -1,7 +1,9 @@
 .board {
     display: flex;
     align-items: center;
-    height: 7rem;
+    height: 112px;
+    max-width: 80%;
+    overflow: hidden;
 }
 
 .player {
@@ -15,16 +17,17 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 2rem;
+    width: 32px;
     height: 80%;
     position: relative;
+    overflow: visible;
 }
 
 .point {
     flex-shrink: 0;
     border-radius: 100%;
-    width: 1rem;
-    height: 1rem;
+    width: 16px;
+    height: 16px;
 }
 
 .point--active {
@@ -32,13 +35,13 @@
 }
 
 .point--first {
-    border-right: 1.1rem solid var(--text-color);
+    border-right: 9px solid var(--text-color);
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
 }
 
 .point--last {
-    border-left: 1.1rem solid var(--text-color);
+    border-left: 9px solid var(--text-color);
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
 }
@@ -47,16 +50,16 @@
     border-radius: 50%;
     position: absolute;
     flex-shrink: 0;
-    height: 2rem;
-    width: 6.2rem;
+    height: 32px;
+    width: 80px;
+    left: -80px;
     outline: 1px solid var(--text-color);
-    left: -6.2rem;
 }
 
 .win--up {
-    top:-0.5rem;
+    top:-8px;
 }
 
 .win--down {
-    bottom:-0.5rem;
+    bottom:-8px;
 }

@@ -101,16 +101,18 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     position: relative;
-    min-height: 90vh;
+    min-height: 70vh;
+    max-width: 99vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     overscroll-behavior-y: contain;
+    font-family: "Helvetica", "Open Sans", "Comic Sans", "cursive", "sans-serif";
+    overflow: hidden;
 }
 
 h1 {
-    margin-bottom: 10rem;
     font-size: 4rem;
 }
 
@@ -254,6 +256,11 @@ a {
 /*region Footer*/
 .footer {
     margin-top: auto;
+    min-height: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
 }
 /*endregion*/
 
