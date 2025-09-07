@@ -272,7 +272,7 @@ a {
 
 .divider--horizontal {
     width: 100%;
-    height: 0px;
+    height: 0;
 }
 /*endregion*/
 
