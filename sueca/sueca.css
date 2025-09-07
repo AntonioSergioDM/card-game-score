@@ -7,7 +7,6 @@
 .player {
     padding: 1rem;
     font-size: 2rem;
-    touch-action: manipulation;
 }
 
 .unit {
