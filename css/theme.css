@@ -35,11 +35,11 @@
     --color-back-disabled-text: #5A5A5A;
 }
 
-.img--light-reverse {
-    filter: invert(1);
+.dark-only {
+    display: none;
 }
-.img--dark-reverse {
-    filter: invert(0);
+.light-only {
+    display: block;
 }
 /*endregion*/
 
@@ -73,12 +73,11 @@
         --color-danger-disabled-text: #7A7A7A;
     }
 
-    .img--light-reverse {
-        filter: invert(0);
+    .light-only {
+        display: none;
     }
-
-    .img--dark-reverse {
-        filter: invert(1);
+    .dark-only {
+        display: block;
     }
 }
 /*endregion*/

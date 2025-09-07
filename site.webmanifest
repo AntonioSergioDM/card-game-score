@@ -1,21 +1,23 @@
 {
   "name": "Card Game Score",
-  "short_name": "Scores",
+  "short_name": "Score",
   "author": "António Sérgio",
   "icons": [
     {
-      "src": "assets/icons/android-chrome-192x192.png",
+      "src": "assets/icons/web-app-manifest-192x192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "maskable"
     },
     {
-      "src": "assets/icons/android-chrome-512x512.png",
+      "src": "assets/icons/web-app-manifest-512x512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "theme_color": "#1a5770",
+  "background_color": "#1a5770",
   "display": "fullscreen",
   "orientation": "landscape",
   "id": "https://antoniosergiodm.github.io/card-game-score/",
