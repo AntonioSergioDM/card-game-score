@@ -16,7 +16,7 @@
   ],
   "theme_color": "#ffffff",
   "background_color": "#ffffff",
-  "display": "standalone",
+  "display": "fullscreen",
   "orientation": "landscape",
   "id": "https://antoniosergiodm.github.io/card-game-score/",
   "start_url": "https://antoniosergiodm.github.io/card-game-score/"
