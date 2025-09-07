@@ -5,7 +5,7 @@ common = function () {
     // Values
     let storageName;
     let score = {};
-    let wasChanged = true;
+    let wasChanged = false;
     const init = () => {
         //For Dev
         /*if (window.location.href.indexOf('?')<0) {
@@ -21,6 +21,7 @@ common = function () {
         storageName = loadPreviousHolder.data('game');
 
         if (!hasPreviousScore()) {
+            wasChanged = true;
             scoreHolder.fadeIn();
             return;
         }
@@ -32,6 +33,7 @@ common = function () {
     const startObservers = () => {
         startNewBtn.on('click', () => {
             score = {};
+            wasChanged = true;
             loadPreviousHolder.fadeOut(()=>scoreHolder.fadeIn());
         });
 
@@ -60,13 +62,8 @@ common = function () {
 
     const loadPrevious = () => {
         const json = localStorage.getItem(storageName);
-        if (!json) {
-            score = {};
-            return;
-        }
-
+        score = JSON.parse(json || "{}") || {};
         wasChanged = true;
-        score = JSON.parse(json) || {};
     }
 
     const save = (object) => {

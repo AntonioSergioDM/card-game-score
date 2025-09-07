@@ -4,12 +4,14 @@
     height: 112px;
     max-width: 80%;
     overflow: hidden;
+    touch-action: manipulation;
 }
 
 .player {
     padding: 1rem;
     font-size: 2rem;
     touch-action: none;
+    cursor: pointer;
 }
 
 .unit {
@@ -35,15 +37,25 @@
 }
 
 .point--first {
-    border-right: 9px solid var(--text-color);
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
+    margin-left: auto;
+    margin-right: -1px;
+    width: 24px;
 }
 
 .point--last {
-    border-left: 9px solid var(--text-color);
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
+    margin-right: auto;
+    margin-left: -1px;
+    width: 24px;
+}
+
+.point--first.point--last {
+    margin-right: 0;
+    margin-left: 0;
+    width: 25px;
 }
 
 .win {
@@ -62,4 +74,9 @@
 
 .win--down {
     bottom:-8px;
+}
+
+.game-separator {
+    font-size: 1.25rem;
+    font-weight: bolder;
 }

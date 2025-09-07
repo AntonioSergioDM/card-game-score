@@ -5,11 +5,11 @@
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/icons/favicon-16x16.png">
-    <link rel="stylesheet" type="text/css" href="../css/theme.css?t=20250907140000">
-    <link rel="stylesheet" type="text/css" href="sueca.css?t=20250907140000">
+    <link rel="stylesheet" type="text/css" href="../css/theme.css?t=20250907180000">
+    <link rel="stylesheet" type="text/css" href="sueca.css?t=20250907180000">
     <script type="text/javascript" src="../js/jquery-3.7.1.min.js"></script>
-    <script type="text/javascript" defer src="../js/common.js?t=20250907140000"></script>
-    <script type="text/javascript" defer src="sueca.js?t=20250907140000"></script>
+    <script type="text/javascript" defer src="../js/common.js?t=20250907180000"></script>
+    <script type="text/javascript" defer src="sueca.js?t=20250907180000"></script>
     <title>Sueca Score</title>
 </head>
 <body>
@@ -20,7 +20,7 @@
 </button>
 <div id="loadPreviousScore" data-game="sueca" class="section" style="display: none">
     <h2>Continue where you left off?</h2>
-    <div class="section__row">
+    <div class="section section--row">
         <button class="button button--secondary" id="restoreScoreBtn">Restore Score</button>
         <button class="button button--primary" id="newScoreBtn">New Score</button>
     </div>
@@ -28,12 +28,19 @@
 <div id="newScore" class="section" style="display: none">
     <!-- Game Specific Stuff in here -->
     <h2>Which mode to use</h2>
-    <div class="section__row">
+    <div class="section section--row">
         <button class="button button--secondary" id="startUnlimitedScore">Unlimited</button>
         <button class="button button--primary" id="startNormalScore">Normal</button>
     </div>
 </div>
+<div id="inputHolder" class="section mt-1" style="display: none">
+    <div class="section section--row">
+        <button class="button button--danger" id="restartBtn">Restart</button>
+        <button class="button button--secondary" id="undoBtn">Undo</button>
+    </div>
+</div>
 
+<!-- Back to common stuff -->
 <div class="footer">&copy;2025 António Sérgio</div>
 </body>
 </html>
