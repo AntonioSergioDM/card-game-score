@@ -113,7 +113,7 @@ body {
     align-items: center;
     overscroll-behavior-y: contain;
     font-family: "Helvetica", "Open Sans", "Comic Sans", "cursive", "sans-serif";
-    overflow: hidden;
+    overflow: auto;
 }
 
 h1 {

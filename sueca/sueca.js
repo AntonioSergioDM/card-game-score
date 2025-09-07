@@ -8,6 +8,7 @@ sueca = function () {
     let not3pointsTimeout = false;
 
     let unlimitedQty = 10;
+    const chunkSize = 20;
 
     let history = [];
 
@@ -96,8 +97,11 @@ sueca = function () {
         // Because both scores need to be the same length, add to the opponent too
         score['score' + opponent][currentPosition] = score['score' + opponent][currentPosition] || false;
 
-        // Multiple points (anywhere in unlimited, but can't have multiples after the final point of the game on normal mode
-        if (isMultiple === player && (score.type === 'unlimited' || currentPosition % 4 !== 0)) {
+        // Multiple points (but can't have multiples after the final point of the game
+        const isLastPointOfSet = score.type !== 'unlimited'
+            ? currentPosition % 4 === 0
+            : currentPosition % unlimitedQty === 0;
+        if (isMultiple === player && !isLastPointOfSet) {
             score['score' + player][currentPosition - 1] -= 0.5;
             score['score' + player][currentPosition] = 1.5;
 
@@ -197,6 +201,7 @@ sueca = function () {
     }
 
     const buildBoard = () => {
+        let html = '';
         const score = common.getScore();
         if (!score.type) {
             return false;
@@ -205,7 +210,10 @@ sueca = function () {
         const scoreUp = score.score1 || getDefaultScore(score.type);
         const scoreDown = score.score2 || getDefaultScore(score.type);
 
-        return `
+        // lets split in
+        let index = 0;
+        while (index < scoreUp.length) {
+            html += `
 <div class="board">
     <div class="players">
         <div class="player" data-player="1">${score.player1 || 'N'}</div>
@@ -213,8 +221,14 @@ sueca = function () {
         <div class="player" data-player="2">${score.player2 || 'V'}</div>
     </div>
     <div class="divider"></div>
-    ${buildFromScores(scoreUp, scoreDown, score.type)}
+    ${buildFromScores(scoreUp.slice(index, index + chunkSize), scoreDown.slice(index, index + chunkSize), score.type)}
 </div>`;
+            index += chunkSize;
+        }
+
+
+
+        return html;
     }
 
     const buildUnit = (up, down) => {
@@ -285,11 +299,7 @@ sueca = function () {
             }
         }
 
-        if (type !== 'unlimited') {
-            html += buildEmptyUnit();
-        } else {
-            html += buildEndUnit();
-        }
+        html += buildEmptyUnit();
 
         return html;
     }

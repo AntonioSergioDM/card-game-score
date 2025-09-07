@@ -9,7 +9,7 @@ A webpage to act as a score sheet for different card games
   - [x] Improve Input
   - [x] Undo Btn
   - [x] Restart Btn
-  - [ ] End and line break
+  - [x] End and line break
 - [ ] King
 - [ ] Hearts
 - [ ] Sueca Italiana
