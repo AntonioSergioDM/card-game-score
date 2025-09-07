@@ -106,7 +106,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    touch-action: manipulation;
+    overscroll-behavior-y: contain;
 }
 
 h1 {
