@@ -6,6 +6,9 @@ sueca = function () {
     let currentUnit = false;
     let upGames = [];
     let downGames = [];
+    let isMultiple = false;
+    let isMultipleTimeout = false;
+    let not3pointsTimeout = false;
 
 
     /* Initialization */
@@ -29,25 +32,67 @@ sueca = function () {
     /* Game Logic */
 
     const addPoint = (evt) => {
-        var player = +$(evt.target).closest('.player').data('player');
-
+        const player = +$(evt.target).closest('.player').data('player');
         if (!player) {
             return;
         }
+
+        const opponent = player === 1 ? 2 : 1;
 
         const score = common.getScore();
         score.score1 = score.score1 || getDefaultScore(score.type);
         score.score2 = score.score2 || getDefaultScore(score.type);
 
-        const currentPosition = getCurrentPosition(score['score' + player], score['score' + (player === 1 ? 2 : 1)], score.type);
+        const currentPosition = getCurrentPosition(score['score' + player], score['score' + opponent], score.type);
 
+        // Because both scores need to be the same length, add to the opponent too
+        score['score' + opponent][currentPosition] = score['score' + opponent][currentPosition] || false;
 
-        // TODO deal with multiple points
-        score['score' + player][currentPosition] = true;
-        score['score' + (player === 1 ? 2 : 1)][currentPosition] = score['score' + (player === 1 ? 2 : 1)][currentPosition] || false;
+        // Multiple points (anywhere in unlimited, but can't have multiples after the final point of the game on normal mode
+        if (isMultiple === player && (score.type === 'unlimited' || currentPosition % 4 !== 0)) {
+            score['score' + player][currentPosition - 1] -= 0.5;
+            score['score' + player][currentPosition] = 1.5;
+
+            if (score.type !== 'unlimited' && currentPosition % 4 === 3) {
+                // Final point of the game (normal mode)
+                isMultiple = false;
+                score['score' + player][currentPosition] = true;
+                let multiplePosition = score['score' + player].findLastIndex(score => score === 0.5);
+                while (multiplePosition < currentPosition) {
+                    score['score' + player][multiplePosition] = false;
+                    multiplePosition++;
+                }
+            }
+
+            // Can't have 3 point multiples, but we must wait for the possible fourth
+            const numberOfPoints = currentPosition - score['score' + player].findLastIndex(score => score === 0.5) + 1;
+            if (numberOfPoints === 3) {
+                not3pointsTimeout = setTimeout(revert3PointsBoundFunction(player, currentPosition), 1000);
+            } else if (numberOfPoints >= 4) {
+                clearTimeout(not3pointsTimeout);
+                isMultiple = false;
+            }
+        } else { // Single point
+            score['score' + player][currentPosition] = true;
+
+            // Allow multiple points
+            clearTimeout(isMultipleTimeout);
+            isMultipleTimeout = setTimeout(() => isMultiple = false, 1000);
+            isMultiple = player;
+        }
 
         common.save(score);
         drawScore();
+    }
+
+    const revert3PointsBoundFunction = (player, currentPosition) => {
+        return () => {
+            const score = common.getScore();
+            score['score' + player][currentPosition] = true;
+            score['score' + player][currentPosition - 1] += 0.5;
+            common.save(score);
+            drawScore();
+        };
     }
 
     const getCurrentPosition = (playerScore, opponentScore, type) => {

@@ -20,7 +20,6 @@ common = function () {
 
         storageName = loadPreviousHolder.data('game');
 
-
         if (!hasPreviousScore()) {
             scoreHolder.fadeIn();
             return;

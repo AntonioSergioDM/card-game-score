@@ -5,7 +5,7 @@ A webpage to act as a score sheet for different card games
 - Sueca
   - [x] Unlimited mode
   - [x] Normal Mode
-  - [ ] Improve Multiple Points
+  - [x] Improve Multiple Points
   - [ ] Improve Input
 - [ ] King
 - [ ] Hearts
