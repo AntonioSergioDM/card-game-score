@@ -8,6 +8,7 @@ A webpage to act as a score sheet for different card games
   - [ ] Improve Multiple Points
   - [ ] Improve Input
   - [ ] Undo Btn
+  - [ ] Restart Btn
   - [ ] End and line break
 - [ ] King
 - [ ] Hearts

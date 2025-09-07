@@ -6,7 +6,6 @@ body {
 }
 
 .logo {
-    margin-top: 4rem;
     max-width: 90%;
  }
 
@@ -20,7 +19,6 @@ body {
     justify-content: center;
     flex-wrap: wrap;
     gap: 3rem;
-    margin-top: 3rem;
 }
 
 .game__link {
