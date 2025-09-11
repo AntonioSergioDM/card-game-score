@@ -309,6 +309,29 @@ a {
 }
 /*endregion*/
 
+/*region Board*/
+.board {
+    display: flex;
+    align-items: center;
+    height: 112px;
+    max-width: 80%;
+    overflow: hidden;
+    touch-action: manipulation;
+}
+/*endregion*/
+
+/*region Player*/
+.player {
+    padding: 1rem;
+    font-size: 2rem;
+    touch-action: none;
+    cursor: pointer;
+    max-width: 6rem;
+    overflow: hidden;
+}
+/*endregion*/
+
+
 /*region Utilities*/
 /*region Position*/
 .absolute {

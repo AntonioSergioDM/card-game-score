@@ -10,6 +10,8 @@ A webpage to act as a score sheet for different card games
   - [x] Undo Btn
   - [x] Restart Btn
   - [x] End and line break
+  - [ ] Add effects for `bandeira` and `pente`
+  - [ ] Redesign multiple points
 - [ ] King
 - [ ] Hearts
 - [ ] Sueca Italiana
