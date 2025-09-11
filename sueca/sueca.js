@@ -27,6 +27,7 @@ sueca = function () {
 
         // Actions
         gameHolder.on('click', addPoint);
+        inputHolder.on('click', addPoint);
         undoBtn.on('click', undoPoint);
         $('#restartBtn').on('click', restartAll);
 
@@ -188,16 +189,8 @@ sueca = function () {
             return;
         }
 
-        gameHolder.html(html + buildPointBtns());
+        gameHolder.html(html);
         inputHolder.fadeIn();
-    }
-
-    const buildPointBtns = () => {
-        return `
-    <div class="section section--row">
-        <button class="button button--primary" data-player="1">Add up</button>
-        <button class="button button--primary" data-player="2">Add down</button>
-    </div>`;
     }
 
     const buildBoard = () => {
