@@ -12,6 +12,8 @@
     font-size: 2rem;
     touch-action: none;
     cursor: pointer;
+    max-width: 6rem;
+    overflow: hidden;
 }
 
 .unit {

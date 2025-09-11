@@ -35,12 +35,12 @@ common = function () {
         startNewBtn.on('click', () => {
             score = {};
             wasChanged = true;
-            loadPreviousHolder.fadeOut(()=>scoreHolder.fadeIn());
+            loadPreviousHolder.fadeOut(() => scoreHolder.fadeIn());
         });
 
         loadPreviousBtn.on('click', () => {
             loadPrevious();
-            loadPreviousHolder.fadeOut(()=>scoreHolder.fadeIn());
+            loadPreviousHolder.fadeOut(() => scoreHolder.fadeIn());
         });
 
         menuBtn.on('click', () => {
@@ -57,7 +57,7 @@ common = function () {
         })
 
         // Common features
-        scoreHolder.on('dblclick focus', rename)
+        scoreHolder.on('dblclick focus', rename);
     };
 
     const rename = (evt) => {
@@ -66,22 +66,27 @@ common = function () {
             return;
         }
 
+        const inputElement = $('<div>', {'class': element.attr('class'),})
+            .addClass('name-input')
+            .css('width', element.outerWidth() + 'px');
+
         const input = $('<input>', {
             type: 'text',
-            data: element.data(),
             placeholder: element.text(),
+            value: score[`player${element.data('renamable')}`] || '',
         }).on('change blur', () => {
-            //save the names
             score[`player${element.data('renamable')}`] = input.val();
             save(score);
 
             // Go back (maybe useless)
-            input.replaceWith(element.text(input.val() || input.attr('placeholder')));
-            input.remove();
-        })
+            inputElement.replaceWith(element.text(input.val() || input.attr('placeholder')));
+            inputElement.remove();
+        });
 
-        element.replaceWith(input);
-        input.focus();
+        inputElement.append(input);
+
+        element.replaceWith(inputElement);
+        input.focus().select();
     }
 
     const hasPreviousScore = () => {

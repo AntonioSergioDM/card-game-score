@@ -124,6 +124,38 @@ a {
     color: var(--link-color);
 }
 
+/*region Input*/
+.name-input input {
+    /* Inherit all font properties from the parent (.name-input div)
+       to perfectly match the text that was replaced. */
+    font: inherit;
+    color: inherit;
+    text-align: inherit; /* Ensures alignment (center, right, etc.) is preserved */
+
+    /* Make the input's background and border invisible to blend in. */
+    background-color: transparent;
+    border: none;
+
+    /* Ensure the input fills its container and respects its boundaries. */
+    max-width: 100%;
+
+    /* Remove default browser styling for inputs that adds extra space. */
+    padding: 0;
+    margin: 0;
+
+    /* Add a subtle outline on focus to indicate it's editable
+       without affecting the layout of the element. */
+    outline: 1px solid var(--color-back-active);
+    border-radius: 3px;
+    transition: outline-color 0.2s ease;
+}
+
+.name-input input:focus {
+    /* Use a theme variable for the focus color! */
+    outline-color: var(--color-primary-active);
+}
+/*endregion*/
+
 /*region Buttons */
 
 .button {
