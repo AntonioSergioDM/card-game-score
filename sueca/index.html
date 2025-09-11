@@ -1,3 +1,4 @@
+<!----------- Common Stuff ----------->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,17 +7,20 @@
     <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
     <link rel="shortcut icon" href="../assets/icons/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="Sueca Score" />
-    <link rel="stylesheet" type="text/css" href="../css/theme.css?t=20250911112000">
-    <link rel="stylesheet" type="text/css" href="sueca.css?t=20250911112000">
     <script type="text/javascript" src="../js/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/theme.css?t=20250911112000">
     <script type="text/javascript" defer src="../js/common.js?t=20250911112000"></script>
+
+<!----------- Game Specific Stuff in here ----------->
+    <meta name="apple-mobile-web-app-title" content="Sueca Score" />
+    <link rel="stylesheet" type="text/css" href="sueca.css?t=20250911112000">
     <script type="text/javascript" defer src="sueca.js?t=20250911112000"></script>
     <title>Sueca Score</title>
 </head>
 <body>
 <h1>Sueca Score</h1>
-<!-- Common Stuff -->
+
+<!----------- Common Stuff ----------->
 <button class="button button--big button--back absolute absolute--startish" id="menuBtn">
     <img class="button__icon button__icon--big img--dark-reverse" src="../assets/back-button.svg" alt="back to menu">
 </button>
@@ -28,7 +32,8 @@
     </div>
 </div>
 <div id="newScore" class="section" style="display: none">
-    <!-- Game Specific Stuff in here -->
+
+<!----------- Game Specific Stuff in here ----------->
     <h2>Which mode to use</h2>
     <div class="section section--row">
         <button class="button button--secondary" id="startUnlimitedScore">Unlimited</button>
@@ -44,9 +49,9 @@
         <button class="button button--danger" id="restartBtn">Restart</button>
         <button class="button button--secondary" id="undoBtn">Undo</button>
     </div>
-</div>
 
-<!-- Back to common stuff -->
+<!----------- Common stuff ----------->
+</div>
 <div class="footer">&copy;2025 António Sérgio</div>
 </body>
 </html>

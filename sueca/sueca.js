@@ -35,7 +35,6 @@ sueca = function () {
         // Start new game
         $('#startNormalScore').on('click', () => startGame('normal'));
         $('#startUnlimitedScore').on('click', () => startGame('unlimited'));
-        $('h1').on('click', () => window.location.reload());
     };
 
     const startGame = (type) => {

@@ -54,7 +54,9 @@ common = function () {
 
             // Build the new path and navigate
             window.location.href = '/' + pathSegments.join('/');
-        })
+        });
+
+        $('h1').on('click', () => window.location.reload());
 
         // Common features
         scoreHolder.on('dblclick focus', rename);
