@@ -216,9 +216,9 @@ sueca = function () {
             html += `
 <div class="board">
     <div class="players">
-        <div class="player" data-player="1">${score.player1 || 'N'}</div>
+        <div class="player" data-renamable="1">${score.player1 || 'N'}</div>
         <div class="divider divider--horizontal"></div>
-        <div class="player" data-player="2">${score.player2 || 'V'}</div>
+        <div class="player" data-renamable="2">${score.player2 || 'V'}</div>
     </div>
     <div class="divider"></div>
     ${buildFromScores(scoreUp.slice(index, index + chunkSize), scoreDown.slice(index, index + chunkSize), score.type)}

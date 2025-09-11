@@ -6,6 +6,7 @@ common = function () {
     let storageName;
     let score = {};
     let wasChanged = false;
+
     const init = () => {
         //For Dev
         /*if (window.location.href.indexOf('?')<0) {
@@ -54,7 +55,34 @@ common = function () {
             // Build the new path and navigate
             window.location.href = '/' + pathSegments.join('/');
         })
+
+        // Common features
+        scoreHolder.on('dblclick focus', rename)
     };
+
+    const rename = (evt) => {
+        const element = $(evt.target).closest('[data-renamable]');
+        if (!element.length) {
+            return;
+        }
+
+        const input = $('<input>', {
+            type: 'text',
+            data: element.data(),
+            placeholder: element.text(),
+        }).on('change blur', () => {
+            //save the names
+            score[`player${element.data('renamable')}`] = input.val();
+            save(score);
+
+            // Go back (maybe useless)
+            input.replaceWith(element.text(input.val() || input.attr('placeholder')));
+            input.remove();
+        })
+
+        element.replaceWith(input);
+        input.focus();
+    }
 
     const hasPreviousScore = () => {
         return !!localStorage.getItem(storageName);

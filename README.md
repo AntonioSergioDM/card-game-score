@@ -17,3 +17,4 @@ A webpage to act as a score sheet for different card games
 - General
   - [ ] Use logo on back button
   - [ ] Fix logo (transparency, border)
+  - [x] Change player name
