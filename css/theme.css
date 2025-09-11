@@ -307,27 +307,17 @@ a {
     width: 100%;
     height: 0;
 }
-/*endregion*/
 
-/*region Board*/
-.board {
-    display: flex;
-    align-items: center;
-    height: 112px;
-    max-width: 80%;
-    overflow: hidden;
-    touch-action: manipulation;
-}
-/*endregion*/
-
-/*region Player*/
-.player {
-    padding: 1rem;
-    font-size: 2rem;
-    touch-action: none;
-    cursor: pointer;
-    max-width: 6rem;
-    overflow: hidden;
+.divider--diagonal {
+    /* This is the magic! */
+    position: absolute;
+    width: 141.4%; /* This is ~sqrt(2), ensuring it covers the diagonal */
+    height: 0;
+    top: 50%;
+    left: 50%;
+    transform-origin: center;
+    /* Center the element, then rotate it */
+    transform: translate(-50%, -50%) rotate(-35deg);
 }
 /*endregion*/
 

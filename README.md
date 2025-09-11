@@ -14,7 +14,8 @@ A webpage to act as a score sheet for different card games
   - [ ] Redesign multiple points
 - [ ] King
 - [ ] Hearts
-- [ ] Sueca Italiana
+- Sueca Italiana
+  - [ ] Fix big table
 
 - General
   - [ ] Use logo on back button

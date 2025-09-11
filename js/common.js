@@ -8,18 +8,13 @@ common = function () {
     let wasChanged = false;
 
     const init = () => {
-        //For Dev
-        /*if (window.location.href.indexOf('?')<0) {
-            window.location.href = window.location.href+'?_ijt=uju87a1n3fgntapsr0m6ht10nr&_ij_reload=RELOAD_ON_SAVE';
-        }*/
-
         loadPreviousHolder = $('#loadPreviousScore');
         loadPreviousBtn = $('#restoreScoreBtn');
         startNewBtn = $('#newScoreBtn');
         scoreHolder = $('#newScore');
         menuBtn = $('#menuBtn');
 
-        storageName = loadPreviousHolder.data('game');
+        storageName = $('h1').text().toLowerCase().replaceAll(' ', '_');
 
         if (!hasPreviousScore()) {
             wasChanged = true;
