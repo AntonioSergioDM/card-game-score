@@ -15,9 +15,11 @@ A webpage to act as a score sheet for different card games
 - [ ] King
 - [ ] Hearts
 - Sueca Italiana
-  - [ ] Fix big table
+  - [x] Fix big table
+  - [ ] Fix change player name
 
 - General
   - [ ] Use logo on back button
   - [ ] Fix logo (transparency, border)
   - [x] Change player name
+  - [ ] Fix go back btn
