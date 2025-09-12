@@ -1,41 +1,89 @@
-/* This ensures the table has no outer border and cell borders touch */
-.board {
-    /* This is from your existing file */
-    touch-action: manipulation;
+/* --- New Rules for Full-Page Layout --- */
 
-    /* These are new styles for the table layout */
-    border-collapse: collapse;
-    border-style: hidden; /* This hides any outer table borders */
-    width: 100%; /* Optional: makes the table take up the full width */
+/*
+  To ensure only the table body scrolls, we'll create a layout
+  that fills the entire screen without overflowing.
+*/
+html {
+    height: 100%;
+    overflow: hidden; /* Prevents the main browser scrollbar */
 }
+
+body {
+    height: 100%;
+    margin: 0; /* Resets default browser margin */
+    display: flex;
+    flex-direction: column; /* Stacks child elements (like headers, content) vertically */
+}
+
+/*
+  This new wrapper will contain your table and grow
+  to fill any available space on the screen.
+*/
+.table-container {
+    flex-grow: 1; /* Allows this element to expand and fill vertical space */
+    min-height: 0; /* A crucial fix for scrolling children inside a flex container */
+}
+
+
+/* --- Modified Table Rules --- */
+
+/*
+  The table is now a flex container itself, which allows us to
+  keep the header a fixed size and dedicate all remaining space to the tbody.
+*/
+.board {
+    /* --- Keep your existing styles --- */
+    touch-action: manipulation;
+    border-collapse: collapse;
+    border-style: hidden;
+    width: 100%;
+    table-layout: fixed;
+
+    /* --- Add/modify these styles for vertical sizing --- */
+    height: 100%; /* The table will now fill its container */
+    display: flex;
+    flex-direction: column;
+}
+
+/* The tbody is now a flex item that grows and scrolls. */
+.board tbody {
+    display: block;
+    overflow-y: auto; /* Use 'auto' to show scrollbar only when needed */
+}
+.board thead {
+    overflow-y: auto;
+    min-height: max-content;
+}
+.board thead,
+.board tbody {
+    scrollbar-gutter: stable;
+}
+
+
+/* --- Unchanged Rules (Still Necessary) --- */
 
 /* This styles all cells (header and data) in your table */
 .board th,
 .board td {
-    /* Align content to the top-right corner of the cell */
     vertical-align: top;
     text-align: right;
-
-    /* Add some padding so content isn't touching the edges */
     padding: 0.5rem;
-
-    /* Add borders to the right and bottom of each cell. */
-    /* Using 'currentColor' makes the border match the text color, as you suggested. */
     border-bottom: 1px solid currentColor;
     border-right: 1px solid currentColor;
 }
+
 .board thead td {
     text-align: center;
 }
-.board tbody td {
-    border-top: 1px solid currentColor;
-}
-.board tbody {
-    max-height: 90vh;
-    overflow: scroll;
-    /* TODO */
-}
 
+/* This fix is still essential to keep header and body columns aligned. */
+.board thead tr,
+.board tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
 
 /* Remove the right-side border from the last cell in every row */
 .board th:last-child,
@@ -43,9 +91,8 @@
     border-right: none;
 }
 
-/* Remove the bottom border from all cells in the last row */
-.board tr:last-child th,
-.board tr:last-child td {
+/* Remove the bottom border from the very last row of the tbody */
+.board tbody tr:last-child td {
     border-bottom: none;
 }
 
@@ -56,6 +103,13 @@
     cursor: pointer;
     max-width: 6rem;
     overflow: hidden;
+    max-height: 100%;
+}
+
+div.player {
+    border-bottom: 1px solid var(--text-color);
+    border-right: 1px solid var(--text-color);
+    min-width: 100%;
 }
 
 .points {

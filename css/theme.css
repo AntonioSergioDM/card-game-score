@@ -294,6 +294,7 @@ a {
     flex-direction: column;
     align-items: center;
     justify-content: end;
+    z-index: -1; /* Always on the back of the page */
 }
 /*endregion*/
 
@@ -321,6 +322,10 @@ a {
 }
 /*endregion*/
 
+/*region Scroll*/
+.scroll {
+    scrollbar-color: var(--color-secondary-bg) transparent;
+}
 
 /*region Utilities*/
 /*region Position*/

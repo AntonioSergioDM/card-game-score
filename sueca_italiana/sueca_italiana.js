@@ -82,7 +82,7 @@ suecaItaliana = function () {
         for (let i = 1; i <= 5; i++) {
             html += `<td class="player" data-renamable="${i}">${score[`player${i}`] || ['I', 'II', 'III', 'IV', 'V'][i - 1]}</td>`;
         }
-        html += '</tr></thead><tbody>';
+        html += '</tr></thead><tbody class="scroll">';
 
         const n = (score.score1 || getDefaultScore()).length;
         for (let i = 0; i < n; i++) {
