@@ -7,15 +7,6 @@
     touch-action: manipulation;
 }
 
-.player {
-    padding: 1rem;
-    font-size: 2rem;
-    touch-action: none;
-    cursor: pointer;
-    max-width: 6rem;
-    overflow: hidden;
-}
-
 .unit {
     display: flex;
     flex-direction: column;

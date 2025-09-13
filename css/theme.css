@@ -331,6 +331,19 @@ a {
 .scroll {
     scrollbar-color: var(--color-secondary-bg) transparent;
 }
+/*endregion*/
+
+/*region Player*/
+.player {
+    padding: 1rem;
+    font-size: 2rem;
+    touch-action: none;
+    cursor: pointer;
+    max-width: 6rem;
+    overflow: hidden;
+}
+/*endregion*/
+
 
 /*region Utilities*/
 /*region Position*/
