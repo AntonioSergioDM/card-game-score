@@ -16,17 +16,39 @@ common = function () {
 
         storageName = $('h1').text().toLowerCase().replaceAll(' ', '_');
 
+        startRedirectObservers();
+
         if (!hasPreviousScore()) {
             wasChanged = true;
             scoreHolder.fadeIn();
             return;
         }
 
-        startObservers();
+        startRestoreObservers();
         loadPreviousHolder.fadeIn();
     };
 
-    const startObservers = () => {
+    const startRedirectObservers = () => {
+        menuBtn.on('click', () => {
+            const currentPath = window.location.pathname;
+            const pathSegments = currentPath.split('/').filter(segment => segment);
+
+            // If there's at least one segment, pop the last one off
+            if (pathSegments.length > 0) {
+                pathSegments.pop();
+            }
+
+            // Build the new path and navigate
+            window.location.href = '/' + pathSegments.join('/');
+        });
+
+        $('h1').on('click', () => window.location.reload());
+
+        // Common features
+        scoreHolder.on('dblclick focus', rename);
+    }
+
+    const startRestoreObservers = () => {
         startNewBtn.on('click', () => {
             score = {};
             wasChanged = true;
@@ -37,26 +59,6 @@ common = function () {
             loadPrevious();
             loadPreviousHolder.fadeOut(() => scoreHolder.fadeIn());
         });
-
-        menuBtn.on('click', () => {
-            const currentPath = window.location.pathname;
-            const pathSegments = currentPath.split('/').filter(segment => segment);
-
-            // If there's at least one segment, pop the last one off
-            if (pathSegments.length > 0) {
-                pathSegments.pop();
-            }
-
-            console.log('/' + pathSegments.join('/'))
-
-            // Build the new path and navigate
-            window.location.href = '/' + pathSegments.join('/');
-        });
-
-        $('h1').on('click', () => window.location.reload());
-
-        // Common features
-        scoreHolder.on('dblclick focus', rename);
     };
 
     const rename = (evt) => {
