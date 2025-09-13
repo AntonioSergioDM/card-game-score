@@ -17,7 +17,7 @@ A webpage to act as a score sheet for different card games
 - Sueca Italiana
   - [x] Fix big table
   - [x] Fix change player name (not important)
-  - [ ] Mark how much points in total
+  - [x] Mark how much points in total
 
 - General
   - ~~Use logo on back button (not important)~~

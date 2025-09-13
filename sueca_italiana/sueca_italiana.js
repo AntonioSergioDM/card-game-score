@@ -80,12 +80,16 @@ suecaItaliana = function () {
         const score = common.getScore();
         let html = '<thead><tr>';
         for (let i = 1; i <= 5; i++) {
-            html += `
-<td>
-    <div class="player" data-renamable="${i}">
-        ${score[`player${i}`] || ['I', 'II', 'III', 'IV', 'V'][i - 1]}
-    </div>
-</td>`;
+            html += `<td class="relative">
+                        <div class="player" data-renamable="${i}">
+                            ${score[`player${i}`] || ['I', 'II', 'III', 'IV', 'V'][i - 1]}
+                        </div>`;
+            if ((score[`score${i}`] || []).length) {
+                html+= `<div class="absolute absolute--endish">
+                            ${score[`score${i}`].reduce((a, b) => a + b, 0)}
+                        </div>`;
+            }
+            html += '</td>';
         }
         html += '</tr></thead><tbody class="scroll">';
 
