@@ -15,6 +15,9 @@ body {
     display: flex;
     flex-direction: column; /* Stacks child elements (like headers, content) vertically */
 }
+.footer {
+    margin-bottom: auto;
+}
 
 /*
   This new wrapper will contain your table and grow

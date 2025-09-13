@@ -12,6 +12,7 @@ A webpage to act as a score sheet for different card games
   - [x] End and line break
   - [ ] Add effects for `bandeira` and `pente`
   - [ ] Redesign multiple points
+  - [ ] Unlimited with adjustable qty
 - [ ] King
 - [ ] Hearts
 - Sueca Italiana

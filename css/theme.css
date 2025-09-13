@@ -114,6 +114,7 @@ body {
     overscroll-behavior-y: contain;
     font-family: "Helvetica", "Open Sans", "Comic Sans", "cursive", "sans-serif";
     overflow: auto;
+    z-index: -100;
 }
 
 h1 {
@@ -122,6 +123,7 @@ h1 {
 
 a {
     color: var(--link-color);
+    cursor: pointer;
 }
 
 /*region Input*/
@@ -295,6 +297,9 @@ a {
     align-items: center;
     justify-content: end;
     z-index: -1; /* Always on the back of the page */
+}
+.footer__link {
+    white-space: nowrap;
 }
 /*endregion*/
 
