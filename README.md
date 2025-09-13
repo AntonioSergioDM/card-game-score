@@ -16,7 +16,8 @@ A webpage to act as a score sheet for different card games
 - [ ] Hearts
 - Sueca Italiana
   - [x] Fix big table
-  - [ ] Fix change player name (not important)
+  - [x] Fix change player name (not important)
+  - [ ] Mark how much points in total
 
 - General
   - ~~Use logo on back button (not important)~~
