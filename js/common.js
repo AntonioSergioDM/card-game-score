@@ -47,6 +47,8 @@ common = function () {
                 pathSegments.pop();
             }
 
+            console.log('/' + pathSegments.join('/'))
+
             // Build the new path and navigate
             window.location.href = '/' + pathSegments.join('/');
         });
