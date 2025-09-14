@@ -288,11 +288,14 @@ sueca = function () {
                 scoreUpTotal += scoreUp[i];
                 scoreDownTotal += scoreDown[i];
                 if (scoreUpTotal >= unlimitedQty || scoreDownTotal >= unlimitedQty) {
+                    // It's the last point of the set
                     if (scoreUp.slice(i-3, i+1).reduce((a, b) => a + b, 0) > 4 || scoreDown.slice(i-3, i+1).reduce((a, b) => a + b, 0) > 4) {
+                        // It's a bandeira that doesn't fit. let's draw a bandeira
                         html += buildUnit(scoreUp[i] && -1, scoreDown[i] && -1, true);
                     } else {
                         html += buildUnit(scoreUp[i], scoreDown[i]);
                     }
+
                     scoreUpTotal = scoreDownTotal = 0;
                     html += buildEndUnit();
                 } else{
