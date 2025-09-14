@@ -356,6 +356,77 @@ input:focus {
 }
 /*endregion*/
 
+/*region Board*/
+.table-container {
+    flex-grow: 1; /* Allows this element to expand and fill vertical space */
+    min-height: 0; /* A crucial fix for scrolling children inside a flex container */
+}
+
+.board {
+    display: flex;
+    touch-action: manipulation;
+}
+
+.board--table {
+    border-collapse: collapse;
+    border-style: hidden;
+
+    width: 100%;
+    height: 100%;
+
+    table-layout: fixed;
+
+    flex-direction: column;
+}
+
+/*region Table stuff*/
+
+.board tbody {
+    display: block;
+    overflow-y: auto;
+}
+
+.board thead {
+    overflow-y: auto;
+    min-height: max-content;
+}
+
+.board thead,
+.board tbody {
+    scrollbar-gutter: stable;
+}
+
+.board th,
+.board td {
+    vertical-align: top;
+    text-align: right;
+    padding: 0.5rem;
+    border-bottom: 3px solid currentColor;
+    border-right: 3px solid currentColor;
+}
+
+.board thead td {
+    text-align: center;
+}
+
+.board thead tr,
+.board tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.board th:last-child,
+.board td:last-child {
+    border-right: none;
+}
+
+.board tbody tr:last-child td {
+    border-bottom: none;
+}
+/*endregion*/
+/*endregion*/
+
 
 /*region Utilities*/
 /*region Position*/
