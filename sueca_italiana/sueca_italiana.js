@@ -130,8 +130,6 @@ suecaItaliana = function () {
 </div>`;
     }
 
-    /* Drawing Logic */
-
 
     /* Helpers */
     const getDefaultScore = () => {
