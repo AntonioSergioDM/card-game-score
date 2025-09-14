@@ -20,11 +20,11 @@ suecaItaliana = function () {
         // Actions
         gameHolder.on('click', addPoint);
         undoBtn.on('click', undoPoint);
-        $('#calculateBtn').on('click', Calculate);
+        $('#calculateBtn').on('click', calculate);
     }
 
     /* Game Logic */
-    const Calculate = () => {
+    const calculate = () => {
         const score = common.getScore();
         for (let i = 1; i <= 5; i++) {
             score[`score${i}`] = score[`score${i}`] || getDefaultScore();
