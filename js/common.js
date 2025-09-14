@@ -87,7 +87,7 @@ common = function () {
         inputElement.append(input);
 
         element.replaceWith(inputElement);
-        input.focus().select();
+        input.trigger('focus').trigger('select');
     }
 
     const hasPreviousScore = () => {

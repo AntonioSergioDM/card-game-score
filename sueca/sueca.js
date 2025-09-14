@@ -34,16 +34,32 @@ sueca = function () {
 
         // Start new game
         $('#startNormalScore').on('click', () => startGame('normal'));
-        $('#startUnlimitedScore').on('click', () => startGame('unlimited'));
+        $('#startUnlimitedScore').on('click', startUnlimited);
     };
 
-    const startGame = (type) => {
+    const startUnlimited = () => {
+        gameHolder.html(`
+            <h2>How many points per game?</h2>
+            <div class="number-input player">
+                <input class="" id="unlimitedQty" type="number" value="${unlimitedQty}"/>
+            </div>
+            
+            <button class="button button--primary" id="startGame">Start</button>
+        `);
+
+        const input = $('#unlimitedQty');
+        input.trigger('focus').trigger('select');
+
+        $('#startGame').on('click', () => startGame('unlimited', input.val()));
+    }
+
+    const startGame = (type, qty) => {
         const score = {
             type: type
         };
 
         if (type === 'unlimited') {
-            score.unlimitedQty = unlimitedQty;
+            score.unlimitedQty = +qty || unlimitedQty;
         }
 
         common.save(score);
@@ -100,7 +116,7 @@ sueca = function () {
         // Multiple points (but can't have multiples after the final point of the game
         const isLastPointOfSet = score.type !== 'unlimited'
             ? currentPosition % 4 === 0
-            : currentPosition % unlimitedQty === 0;
+            : currentPosition % score.unlimitedQty === 0;
         if (isMultiple === player && !isLastPointOfSet) {
             score['score' + player][currentPosition - 1] -= 0.5;
             score['score' + player][currentPosition] = 1.5;
@@ -197,6 +213,9 @@ sueca = function () {
         const score = common.getScore();
         if (!score.type) {
             return false;
+        }
+        if (score.type === 'unlimited') {
+            unlimitedQty = +score.unlimitedQty;
         }
 
         const scoreUp = score.score1 || getDefaultScore(score.type);
@@ -314,7 +333,7 @@ sueca = function () {
     }
 
     const getDefaultScore = (type) => {
-        return new Array(type === 'unlimited' ? 10 : 8).fill(false);
+        return new Array(type === 'unlimited' ? unlimitedQty : 8).fill(false);
     }
 
     return {

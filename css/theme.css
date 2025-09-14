@@ -127,7 +127,7 @@ a {
 }
 
 /*region Input*/
-.name-input input {
+.name-input input, .number-input input {
     /* Inherit all font properties from the parent (.name-input div)
        to perfectly match the text that was replaced. */
     font: inherit;
@@ -152,7 +152,19 @@ a {
     transition: outline-color 0.2s ease;
 }
 
-.name-input input:focus {
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+input:focus {
     /* Use a theme variable for the focus color! */
     outline-color: var(--color-primary-active);
 }
