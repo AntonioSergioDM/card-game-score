@@ -74,9 +74,8 @@ sueca = function () {
     }
 
     const undoPoint = () => {
-        const lastMove = history.pop();
+        let lastMove = history.pop();
         if (lastMove === undefined) {
-            window.location.reload();
             return;
         }
         [lastPointTeam, lastPointPosition] = lastMove;
@@ -84,15 +83,16 @@ sueca = function () {
         const score = common.getScore();
         score['score' + lastPointTeam][lastPointPosition] = false;
 
-        if (lastPointPosition !== 0) {
-            //let's check if it's a multiple
-            let previousScore = score['score' + lastPointTeam][lastPointPosition-1];
-            while (previousScore === 0.5 || previousScore === 1) {
-                score['score' + lastPointTeam][lastPointPosition - 1] = false;
-                previousScore = score['score' + lastPointTeam][lastPointPosition-1];
+        // Remove the multiple points inputs from history
+        do {
+            lastMove = history.pop();
+            if (lastMove === undefined) {
+                break;
             }
-        }
 
+            [lastPointTeam, lastPointPosition] = lastMove;
+        } while(score['score' + lastPointTeam][lastPointPosition] <= 0)
+        history.push([lastPointTeam, lastPointPosition]);
         common.save(score);
     }
 
@@ -118,22 +118,16 @@ sueca = function () {
             ? currentPosition % 4 === 0
             : currentPosition % score.unlimitedQty === 0;
         if (isMultiple === player && !isLastPointOfSet) {
-            score['score' + player][currentPosition - 1] -= 0.5;
-            score['score' + player][currentPosition] = 1.5;
+            score['score' + player][currentPosition] = score['score' + player][currentPosition - 1] + 1;
+            score['score' + player][currentPosition - 1] = false;
 
             if (score.type !== 'unlimited' && currentPosition % 4 === 3) {
                 // Final point of the game (normal mode)
                 isMultiple = false;
-                score['score' + player][currentPosition] = true;
-                let multiplePosition = score['score' + player].findLastIndex(score => score === 0.5);
-                while (multiplePosition < currentPosition) {
-                    score['score' + player][multiplePosition] = false;
-                    multiplePosition++;
-                }
             }
 
             // Can't have 3 point multiples, but we must wait for the possible fourth
-            const numberOfPoints = currentPosition - score['score' + player].findLastIndex(score => score === 0.5) + 1;
+            const numberOfPoints = score['score' + player][currentPosition];
             if (numberOfPoints === 3) {
                 not3pointsTimeout = setTimeout(() => revert3Points(player, currentPosition), 1000);
             } else if (numberOfPoints >= 4) {
@@ -141,7 +135,7 @@ sueca = function () {
                 isMultiple = false;
             }
         } else { // Single point
-            score['score' + player][currentPosition] = true;
+            score['score' + player][currentPosition] = 1;
 
             // Allow multiple points
             clearTimeout(isMultipleTimeout);
@@ -155,24 +149,23 @@ sueca = function () {
 
     const revert3Points = (player, currentPosition) => {
         const score = common.getScore();
-        score['score' + player][currentPosition] = true;
-        score['score' + player][currentPosition - 1] += 0.5;
+        score['score' + player][currentPosition - 1] = score['score' + player][currentPosition] - 1;
+        score['score' + player][currentPosition] = 1;
         common.save(score);
         drawScore();
     }
 
     const getCurrentPosition = (playerScore, opponentScore, type) => {
-        let playerLast = playerScore.findLastIndex(score => score !== false);
+        let playerLast = playerScore.findLastIndex(score => !!score);
         if (playerLast === undefined) {
             playerLast = -1;
         }
-
 
         if (type === 'unlimited') {
             return playerLast + 1;
         }
 
-        let opponentLast = opponentScore.findLastIndex(score => score !== false);
+        let opponentLast = opponentScore.findLastIndex(score => !!score);
         if (opponentLast === undefined) {
             opponentLast = -1;
         }
@@ -181,10 +174,12 @@ sueca = function () {
             return playerLast + 1;
         }
 
+        // We need to check in which game we are
         const not_sure_what_to_call_it = (opponentLast % 4);
         if (not_sure_what_to_call_it === 3) {
             return opponentLast + 1;
         }
+
         if (opponentLast - playerLast <= not_sure_what_to_call_it) {
             return playerLast + 1;
         }
@@ -244,12 +239,12 @@ sueca = function () {
 
     const buildUnit = (up, down) => {
         return `
-<div class="unit"">
-    <div class="${getPointClasses(up)}" data-player="1"></div>
+<div class="unit">
+    <div class="point" data-player="1"><div class="${getPointClasses(up)}"></div></div>
     <div class="divider" data-player="1"></div>
     <div class="divider divider--horizontal"></div>
     <div class="divider" data-player="2"></div>
-    <div class="${getPointClasses(down)}" data-player="2"></div>
+    <div class="point" data-player="2"><div class="${getPointClasses(down)}"></div></div>
 </div>`;
     }
 
@@ -318,18 +313,16 @@ sueca = function () {
     /* Helpers */
 
     const getPointClasses = (point) => {
-        let classes = 'point';
-        if (point) {
-            classes += ' point--active';
+        switch (+point) {
+            case 1:
+                return 'point point--active';
+            case 2:
+                return 'point__multiple point__multiple--double';
+            case 4:
+                return 'point__multiple point__multiple--tetra';
+            default:
+                return '';
         }
-        if (point === 0.5 || point === 1) {
-            classes += ' point--first';
-        }
-        if (point === 1.5 || point === 1) {
-            classes += ' point--last';
-        }
-
-        return classes;
     }
 
     const getDefaultScore = (type) => {

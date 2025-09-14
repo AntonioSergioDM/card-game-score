@@ -2,7 +2,6 @@
     display: flex;
     align-items: center;
     height: 112px;
-    max-width: 80%;
     overflow: hidden;
     touch-action: manipulation;
 }
@@ -12,7 +11,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 32px;
+    width: 24px;
     height: 80%;
     position: relative;
     overflow: visible;
@@ -23,10 +22,30 @@
     border-radius: 100%;
     width: 16px;
     height: 16px;
+    position: relative;
 }
 
 .point--active {
     background-color: var(--text-color);
+}
+
+.point__multiple {
+    border-radius: 50%;
+    position: absolute;
+    flex-shrink: 0;
+    right: 0;
+    outline: 3px solid var(--text-color);
+}
+
+.point__multiple--double {
+    top: 4px;
+    height: 16px;
+    width: 40px;
+}
+
+.point__multiple--tetra {
+    height: 25px;
+    width: 90px;
 }
 
 .point--first {

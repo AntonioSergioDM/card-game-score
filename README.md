@@ -11,7 +11,7 @@ A webpage to act as a score sheet for different card games
   - [x] Restart Btn
   - [x] End and line break
   - [ ] Add effects for `bandeira` and `pente`
-  - [ ] Redesign multiple points
+  - [x] Redesign multiple points
   - [x] Unlimited with adjustable qty
 - [ ] King
 - [ ] Hearts
