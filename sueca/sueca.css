@@ -1,8 +1,6 @@
 .board {
-    display: flex;
     align-items: center;
     height: 112px;
-    touch-action: manipulation;
 }
 
 .unit {
@@ -45,28 +43,6 @@
 .point__multiple--tetra {
     height: 25px;
     width: 90px;
-}
-
-.point--first {
-    border-bottom-right-radius: 0;
-    border-top-right-radius: 0;
-    margin-left: auto;
-    margin-right: -1px;
-    width: 24px;
-}
-
-.point--last {
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-    margin-right: auto;
-    margin-left: -1px;
-    width: 24px;
-}
-
-.point--first.point--last {
-    margin-right: 0;
-    margin-left: 0;
-    width: 25px;
 }
 
 .win {

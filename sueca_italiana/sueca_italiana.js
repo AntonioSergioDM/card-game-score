@@ -2,9 +2,6 @@ suecaItaliana = function () {
     // Elements
     let gameHolder, board, undoBtn;
 
-    let unlimitedQty = 10;
-    const chunkSize = 20;
-
     let history = [];
 
     /* Initialization */
@@ -23,11 +20,11 @@ suecaItaliana = function () {
         // Actions
         gameHolder.on('click', addPoint);
         undoBtn.on('click', undoPoint);
-        $('#calculateBtn').on('click', Calculate);
+        $('#calculateBtn').on('click', calculate);
     }
 
     /* Game Logic */
-    const Calculate = () => {
+    const calculate = () => {
         const score = common.getScore();
         for (let i = 1; i <= 5; i++) {
             score[`score${i}`] = score[`score${i}`] || getDefaultScore();
@@ -132,8 +129,6 @@ suecaItaliana = function () {
     <div class="divider divider--diagonal"></div>
 </div>`;
     }
-
-    /* Drawing Logic */
 
 
     /* Helpers */
