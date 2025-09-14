@@ -289,7 +289,7 @@ sueca = function () {
                 scoreDownTotal += scoreDown[i];
                 if (scoreUpTotal >= unlimitedQty || scoreDownTotal >= unlimitedQty) {
                     if (scoreUp.slice(i-3, i+1).reduce((a, b) => a + b, 0) > 4 || scoreDown.slice(i-3, i+1).reduce((a, b) => a + b, 0) > 4) {
-                        html += buildUnit(!!scoreUp[i], !!scoreDown[i], true);
+                        html += buildUnit(scoreUp[i] && -1, scoreDown[i] && -1, true);
                     } else {
                         html += buildUnit(scoreUp[i], scoreDown[i]);
                     }
