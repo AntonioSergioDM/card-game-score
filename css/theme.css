@@ -371,3 +371,9 @@ a {
     margin-top: 1rem;
 }
 /*endregion*/
+
+/*region Typography*/
+.text-xs {
+    font-size: 0.75rem;
+}
+/*endregion*/

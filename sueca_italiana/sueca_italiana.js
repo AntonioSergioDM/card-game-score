@@ -74,6 +74,8 @@ suecaItaliana = function () {
         }
 
         board.html(buildBoard());
+        var scrollArea = board.find('.scroll');
+        scrollArea.scrollTop(scrollArea.height());
     }
 
     const buildBoard = () => {
@@ -97,7 +99,12 @@ suecaItaliana = function () {
         for (let i = 0; i < n; i++) {
             html += '<tr>';
             for (let j = 1; j <= 5; j++) {
-                html += `<td class="" data-player="${j}">${buildUnit((score[`score${j}`] || getDefaultScore())[i])}</td>`;
+                html += `<td class="relative" data-player="${j}">
+                            ${buildUnit((score[`score${j}`] || getDefaultScore())[i])}
+                            <div class="absolute absolute--endish text-xs">
+                               ${score[`score${j}`] && score[`score${j}`][i] || 0}
+                            </div>
+                         </td>`;
             }
             html += '</tr>';
         }
