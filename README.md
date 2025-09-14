@@ -10,13 +10,15 @@ A webpage to act as a score sheet for different card games
   - [x] Undo Btn
   - [x] Restart Btn
   - [x] End and line break
-  - [ ] Add effects for `bandeira` and `pente`
+  - [x] Add effects for `bandeira`
+  - [ ] Add effects for `pente`
   - [x] Redesign multiple points
   - [x] Unlimited with adjustable qty
 - [ ] King
 - Hearts
   - [ ] Allow 5 player game
   - [ ] Allow 40 and 52 cards decks
+  - [ ] Focus next input/button on enter/tab
 - Sueca Italiana
   - [x] Fix big table
   - [x] Fix change player name (not important)
