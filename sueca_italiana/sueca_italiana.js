@@ -2,9 +2,6 @@ suecaItaliana = function () {
     // Elements
     let gameHolder, board, undoBtn;
 
-    let unlimitedQty = 10;
-    const chunkSize = 20;
-
     let history = [];
 
     /* Initialization */
