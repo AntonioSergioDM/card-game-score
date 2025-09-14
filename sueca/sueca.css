@@ -2,7 +2,6 @@
     display: flex;
     align-items: center;
     height: 112px;
-    overflow: hidden;
     touch-action: manipulation;
 }
 
@@ -88,6 +87,40 @@
     bottom:-8px;
 }
 
+.bandeira {
+    position: absolute;
+    right: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: start;
+    width: 20px;
+}
+
+.bandeira--up {
+    top: -20px;
+    transform: rotate(8deg);
+}
+
+.bandeira--down {
+    justify-content: end;
+    bottom: -20px;
+    right: 10px;
+    transform: rotate(-4deg);
+}
+
+.bandeira__pole {
+    border-right: 1px solid var(--text-color);
+    height: 40px;
+}
+
+.bandeira__flag {
+    width: 100%;
+    height: 12px;
+
+    background-color: var(--text-color);
+}
+
 .game-separator {
     font-size: 1.25rem;
     font-weight: bolder;
@@ -95,4 +128,40 @@
 
 .player {
     white-space: nowrap;
+}
+
+.wave {
+    background-image:
+        /* Darker folds/shadows */
+            linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.2) 20%, transparent 40%),
+            linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.3) 60%, transparent 80%),
+                /* Lighter highlights */
+            linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 30%, transparent 50%),
+            linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.2) 70%, transparent 90%);
+
+    background-size:
+            150px 100%, /* Size for first shadow/highlight */
+            200px 100%, /* Size for second shadow/highlight */
+            180px 100%, /* Size for third shadow/highlight */
+            220px 100%; /* Size for fourth shadow/highlight */
+
+    background-repeat: no-repeat;
+    animation: waveColor 6s linear infinite;
+}
+
+@keyframes waveColor {
+    0% {
+        background-position:
+                -100% 0, /* Start first shadow off-screen left */
+                -150% 0, /* Start second shadow further left */
+                -120% 0, /* Start first highlight further left */
+                -170% 0; /* Start second highlight further left */
+    }
+    100% {
+        background-position:
+                200% 0, /* End first shadow far right */
+                250% 0, /* End second shadow far right */
+                220% 0, /* End first highlight far right */
+                270% 0; /* End second highlight far right */
+    }
 }
