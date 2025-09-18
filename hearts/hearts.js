@@ -1,6 +1,6 @@
 hearts = function () {
     // Elements
-    let gameHolder, board, undoBtn;
+    let gameHolder, board, undoBtn, numPlayers, numPoints;
 
     let playerNumber = 4;
     let totalPointsPerGame = 26
@@ -11,6 +11,8 @@ hearts = function () {
         gameHolder = $('#newScore');
         board = $('#board');
         undoBtn = $('#undoBtn');
+        numPlayers = $('#numPlayers').val(playerNumber);
+        numPoints = $('#numPoints').val(totalPointsPerGame);
 
         startObservers();
     };
@@ -24,6 +26,8 @@ hearts = function () {
         // Actions
         undoBtn.on('click', undo);
         $('#calculateBtn').on('click', calculate);
+        numPlayers.on('change', () => playerNumber = +numPlayers.val() || playerNumber);
+        numPoints.on('change', () => totalPointsPerGame = +numPoints.val() || totalPointsPerGame);
     };
 
     const focusPlayerEvent = (evt) => {
@@ -184,7 +188,7 @@ hearts = function () {
         for (let i = 1; i <= playerNumber; i++) {
             html += `
                 <td data-player="${i}">
-                    <div class="number-input points">
+                    <div class="input input--number points">
                         <input type="number" placeholder="${score[`player${i}`] || ['I', 'II', 'III', 'IV', 'V'][i - 1]}"/>
                     </div>
                  </td>`;
