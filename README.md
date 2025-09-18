@@ -17,8 +17,8 @@ A webpage to act as a score sheet for different card games
 - [ ] King
 - Hearts
   - [ ] Allow 5 player game
-  - [ ] Allow 40 and 52 cards decks
-  - [ ] Focus next input/button on enter/tab
+  - [ ] Allow ~~40 and 52 cards decks~~ any total points (26 for 52 cards or 23 for 40 cards)
+  - [x] Focus next input/button on enter/tab
   - [ ] Some sort of error if wrong points per game
 - Sueca Italiana
   - [x] Fix big table

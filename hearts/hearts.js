@@ -116,7 +116,7 @@ hearts = function () {
 
         board.html(buildBoard());
         var scrollArea = board.find('.scroll');
-        scrollArea.scrollTop(scrollArea.height());
+        scrollArea.scrollTop(scrollArea.prop("scrollHeight"));
     }
 
     const buildBoard = () => {
