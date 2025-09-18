@@ -1,0 +1,51 @@
+<!----------- Common Stuff ----------->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="icon" type="image/png" href="../assets/icons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
+    <link rel="shortcut icon" href="../assets/icons/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/apple-touch-icon.png" />
+
+    <script type="text/javascript" src="../js/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/theme.css?t=20250918122000">
+    <script type="text/javascript" defer src="../js/common.js?t=20250918122000"></script>
+
+<!----------- Game Specific Stuff in here ----------->
+    <meta name="apple-mobile-web-app-title" content="King Score" />
+    <link rel="stylesheet" type="text/css" href="king.css?t=20250918122000">
+    <script type="text/javascript" defer src="king.js?t=20250918122000"></script>
+    <title>King Score</title>
+</head>
+<body>
+<h1>King Score</h1>
+
+<!----------- Common Stuff ----------->
+<button class="button button--big button--back absolute absolute--startish" id="menuBtn">
+    <img class="button__icon button__icon--big img--dark-reverse" src="../assets/back-button.svg" alt="back to menu">
+</button>
+<div id="loadPreviousScore" data-game="sueca_italiana" class="section" style="display: none">
+    <h2>Continue where you left off?</h2>
+    <div class="section section--row">
+        <button class="button button--secondary" id="restoreScoreBtn">Restore Score</button>
+        <button class="button button--primary" id="newScoreBtn">New Score</button>
+    </div>
+</div>
+<div id="newScore" class="section table-container" style="display: none">
+
+<!----------- Game Specific Stuff in here ----------->
+    <table id="board" class="board board--table"></table>
+    <div class="section mt-1">
+        <div class="section section--row">
+            <button class="button button--secondary" id="undoBtn">Undo</button>
+            <button class="button button--primary" id="calculateBtn">Calculate</button>
+        </div>
+    </div>
+
+<!----------- Common stuff ----------->
+</div>
+<div class="footer"><a class="footer__link" href="https://github.com/AntonioSergioDM">&copy;2025 António Sérgio</a></div>
+</body>
+</html>
