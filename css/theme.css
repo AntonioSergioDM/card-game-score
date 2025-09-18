@@ -168,6 +168,10 @@ input:focus {
     /* Use a theme variable for the focus color! */
     outline-color: var(--color-primary-active);
 }
+
+.input--error input:focus {
+    outline-color: var(--color-danger-active);
+}
 /*endregion*/
 
 /*region Buttons */

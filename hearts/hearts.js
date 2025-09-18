@@ -17,7 +17,10 @@ hearts = function () {
 
     const startObservers = () => {
         setInterval(drawScore, 100);
-        gameHolder.on('click', focusPlayerEvent);
+        gameHolder
+            .on('click', focusPlayerEvent)
+            .on('change', calculate)
+            .on('keyup', onKeydown);
         // Actions
         undoBtn.on('click', undo);
         $('#calculateBtn').on('click', calculate);
@@ -32,9 +35,24 @@ hearts = function () {
         $('td[data-player="' + player + '"] input').trigger('focus');
     };
 
+    const onKeydown = (evt) => {
+        const player = +$(evt.target).closest('[data-player]').data('player');
+        if (!player) {
+            return;
+        }
+
+        if (evt.key === 'Enter') {
+            $(`td[data-player="${player + 1}"] input`).trigger('focus');
+        }
+    };
+
     /* Game Logic */
-    const calculate = () => {
-        let onlyOne = 0;
+    /**
+     *
+     * @returns {[number,number]}
+     */
+    const getTotalPoints = () => {
+        let shootTheMoon = 0;
         let totalPoints = 0;
         const inputs = $('td[data-player] input');
 
@@ -42,7 +60,7 @@ hearts = function () {
             const input = $(this);
             const value = +input.val();
             totalPoints += value;
-            if (onlyOne === false) {
+            if (shootTheMoon === false) {
                 return;
             }
 
@@ -50,21 +68,36 @@ hearts = function () {
                 return;
             }
 
-            if (value > 0 && onlyOne) {
-                onlyOne = false;
+            if (value > 0 && shootTheMoon) {
+                shootTheMoon = false;
                 return;
             }
 
-            onlyOne = +input.closest('td').data('player');
+            shootTheMoon = +input.closest('td').data('player');
         });
+
+        return [totalPoints, shootTheMoon];
+    }
+
+    const calculate = (evt) => {
+        const [totalPoints, shootTheMoon] =  getTotalPoints();
 
         const score = common.getScore();
         totalPointsPerGame = score.totalPointsPerGame = score.totalPointsPerGame || totalPointsPerGame;
 
-        if (totalPoints !== totalPointsPerGame) {
+        if (totalPoints < totalPointsPerGame) {
+            return;
+        } else if (totalPoints > totalPointsPerGame) {
+            const player = +$(evt.target).closest('[data-player]').data('player');
+            if (player) {
+                $(`td[data-player="${player}"]`)
+                    .find('div').addClass('input--error')
+                    .find('input').trigger('focus');
+            }
             return;
         }
 
+        const inputs = $('td[data-player] input');
 
         inputs.each(function () {
             const player = +$(this).closest('td').data('player');
@@ -77,8 +110,8 @@ hearts = function () {
                 score[`score${player}`].push(currentScore);
             }
 
-            if (onlyOne) {
-                if (onlyOne !== player) {
+            if (shootTheMoon) {
+                if (shootTheMoon !== player) {
                     currentScore += totalPointsPerGame;
                 }
             } else {
