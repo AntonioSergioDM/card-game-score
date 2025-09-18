@@ -127,26 +127,26 @@ a {
 }
 
 /*region Input*/
-.name-input input, .number-input input {
-    /* Inherit all font properties from the parent (.name-input div)
-       to perfectly match the text that was replaced. */
+.input{
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem
+}
+.input label {
+    font: inherit;
+    color: var(--text-color);
+    font-size: 90%;
+}
+
+.input input {
     font: inherit;
     color: inherit;
-    text-align: inherit; /* Ensures alignment (center, right, etc.) is preserved */
-
-    /* Make the input's background and border invisible to blend in. */
+    text-align: inherit;
     background-color: transparent;
     border: none;
-
-    /* Ensure the input fills its container and respects its boundaries. */
     max-width: 100%;
-
-    /* Remove default browser styling for inputs that adds extra space. */
     padding: 0;
     margin: 0;
-
-    /* Add a subtle outline on focus to indicate it's editable
-       without affecting the layout of the element. */
     outline: 1px solid var(--color-back-active);
     border-radius: 3px;
     transition: outline-color 0.2s ease;
@@ -164,8 +164,7 @@ input[type=number] {
     -moz-appearance: textfield;
 }
 
-input:focus {
-    /* Use a theme variable for the focus color! */
+.input input:focus {
     outline-color: var(--color-primary-active);
 }
 
@@ -462,5 +461,66 @@ input:focus {
 /*region Typography*/
 .text-xs {
     font-size: 0.75rem;
+}
+
+.text-center {
+    text-align: center;
+}
+/*endregion*/
+
+/*region Width*/
+.w-1 {
+    width: 0.25rem;
+}
+.w-2 {
+    width: 0.5rem;
+}
+.w-4 {
+    width: 1rem;
+}
+.w-8 {
+    width: 2rem;
+}
+.w-16 {
+    width: 4rem;
+}
+.w-20 {
+    width: 5rem;
+}
+.w-24 {
+    width: 6rem;
+}
+.w-32 {
+    width: 8rem;
+}
+.w-40 {
+    width: 10rem;
+}
+/*endregion*/
+
+/*region Height*/
+.h-1 {
+    height: 0.25rem;
+}
+.h-2 {
+    height: 0.5rem;
+}
+.h-4 {
+    height: 1rem;
+}
+.h-8 {
+    height: 2rem;
+}
+.h-16 {
+    height: 4rem;
+}
+.h-20 {
+    height: 5rem;
+}
+.h-24 {
+    height: 6rem;
+}
+.h-32 {
+    height: 8rem;
 }
 /*endregion*/

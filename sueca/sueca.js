@@ -40,7 +40,7 @@ sueca = function () {
     const startUnlimited = () => {
         gameHolder.html(`
             <h2>How many points per game?</h2>
-            <div class="number-input player">
+            <div class="input input--number player">
                 <input class="" id="unlimitedQty" type="number" value="${unlimitedQty}"/>
             </div>
             

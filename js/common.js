@@ -68,7 +68,7 @@ common = function () {
         }
 
         const inputElement = $('<div>', {'class': element.attr('class'),})
-            .addClass('name-input')
+            .addClass('input input--name')
             .css('width', element.outerWidth() + 'px');
 
         const input = $('<input>', {
