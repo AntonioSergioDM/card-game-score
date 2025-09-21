@@ -14,7 +14,11 @@ A webpage to act as a score sheet for different card games
   - [ ] Add effects for `pente`
   - [x] Redesign multiple points
   - [x] Unlimited with adjustable qty
-- [ ] King
+- King
+  - [ ] Totals
+  - [ ] Nulos
+  - [ ] 4-3-3-3 (not sure about doing this or not)
+  - [ ] Fix focus on inputs
 - Hearts
   - [x] Allow 5 player game
   - [x] Allow ~~40 and 52 cards decks~~ any total points (26 for 52 cards or 23 for 40 cards)
