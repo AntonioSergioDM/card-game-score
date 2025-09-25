@@ -15,8 +15,8 @@ A webpage to act as a score sheet for different card games
   - [x] Redesign multiple points
   - [x] Unlimited with adjustable qty
 - King
-  - [ ] Totals
-  - [ ] Nulos
+  - [x] Totals
+  - [x] Nulos
   - [ ] 4-3-3-3 (not sure about doing this or not)
   - [ ] Fix focus on inputs
 - Hearts

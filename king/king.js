@@ -33,7 +33,7 @@ king = function () {
             multiplier: 25,
             positive: true,
         },
-        'festa-nulos': {
+        'festaNulos': {
             max: 13,
             multiplier: -75,
             start: 325,
@@ -59,17 +59,20 @@ king = function () {
         // Actions
         gameHolder.on('click', addPoint);
         undoBtn.on('click', undoPoint);
-        $('#calculateBtn').on('click', calculate);
+        $('#calculateBtn, #calculateBtnNulos').on('click', calculate);
     }
 
     /* Game Logic */
-    const calculate = () => {
+    const calculate = (evt) => {
         let turnSettings = {};
         if (currentTurn < negativeOrder.length) {
             turnSettings = gameSettings[negativeOrder[currentTurn]];
         } else {
-            // TODO or nulos
-            turnSettings = gameSettings['festa'];
+            if ($(evt.target).data('festa-nulos')) {
+                turnSettings = gameSettings.festaNulos;
+            } else {
+                turnSettings = gameSettings.festa;
+            }
         }
 
         const score = common.getScore();
@@ -79,9 +82,9 @@ king = function () {
             let points = +playerInput.val() || 0;
             playerInput.closest('.input').removeClass('input--error');
 
-            if (points <= turnSettings.max) {
-                points = points * turnSettings.multiplier + (turnSettings.start || 0);
-            } else if (points % turnSettings.multiplier !== 0) {
+            if (Math.abs(points) <= turnSettings.max) {
+                points = Math.abs(points) * turnSettings.multiplier + (turnSettings.start || 0);
+            } else if ((points - (turnSettings.start || 0)) % turnSettings.multiplier !== 0) {
                 playerInput.closest('.input').addClass('input--error');
                 points = 0;
             }
@@ -140,7 +143,11 @@ king = function () {
             input.trigger('focus').trigger('select');
         }
 
-        // TODO add totals depending on the current turn
+        if (currentTurn >= negativeOrder.length) {
+            $('#calculateBtnNulos').show();
+        } else {
+            $('#calculateBtnNulos').hide();
+        }
     }
 
     const buildBoard = () => {
