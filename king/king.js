@@ -3,7 +3,6 @@ king = function () {
     let gameHolder, board, undoBtn;
 
     const negativeOrder = ['vazas', 'copas', 'homens', 'mulheres', 'king', 'duasUltimas'];
-    let currentTurn = 0;
     const gameSettings = {
         'vazas': {
             multiplier: 20,
@@ -41,6 +40,8 @@ king = function () {
             positive: true,
         },
     }
+    const numPlayers = 4;
+    let currentTurn = 0;
 
     /* Initialization */
 
@@ -73,7 +74,7 @@ king = function () {
 
         const score = common.getScore();
         let turnTotal = 0;
-        for (let i = 1; i <= 4; i++) {
+        for (let i = 1; i <= numPlayers; i++) {
             const playerInput = $('#input_' + i);
             let points = +playerInput.val() || 0;
             playerInput.closest('.input').removeClass('input--error');
@@ -144,41 +145,75 @@ king = function () {
 
     const buildBoard = () => {
         const score = common.getScore();
+
+        currentTurn = score.currentTurn || currentTurn;
+        const negativeTurns = negativeOrder.length;
+        let totals = {};
+
+        let html = buildHead(score);
+
+        html += '<tbody class="scroll">';
+        for (let i = 0; i < negativeTurns; i++) {
+            html += `<tr>
+                        <td>${negativeOrder[i]}</td>`;
+            for (let j = 1; j <= numPlayers; j++) {
+                if (!totals[j]) {
+                    totals[j] = {};
+                }
+
+                const playerScore = (score[`score${j}`] || getDefaultScore());
+
+                totals[j].negative = (totals[j]?.negative || 0) + playerScore[negativeOrder[i]];
+                totals[j].positive = (totals[j]?.positive || 0) + (playerScore[`festa${i + 1}`] || 0);
+
+                html += buildUnit(j, i, playerScore[negativeOrder[i]], -totals[j].negative);
+                html += buildUnit(j, i + negativeTurns, playerScore[`festa${i + 1}`], totals[j].positive);
+            }
+            html += '</tr>';
+        }
+
+        // extra line for design effects and final score
+        html += '<tr><td class="h-4"></td>';
+        for (let j = 1; j <= numPlayers; j++) {
+            html+= '<td></td><td class="relative">';
+            if (currentTurn >= negativeOrder.length + numPlayers) {
+                html+= `<div class="total total--final">${totals[j].positive - totals[j].negative}</div>`;
+            }
+            html+= '</td>';
+        }
+        html += '</tr>';
+        html += '</tbody>';
+        return html;
+    }
+
+    const buildHead = (score) => {
         let html = '<thead><tr><td></td>';
-        for (let i = 1; i <= 4; i++) {
+        for (let i = 1; i <= numPlayers; i++) {
             html += `<td colspan="2">
                         <div class="player" data-renamable="${i}">
                             ${score[`player${i}`] || ['I', 'II', 'III', 'IV', 'V'][i - 1]}
                         </div>`;
             html += '</td>';
         }
-        html += '</tr></thead><tbody class="scroll">';
-        currentTurn = score.currentTurn || currentTurn;
-        const n = negativeOrder.length;
-        for (let i = 0; i < n; i++) {
-            html += `<tr>
-                        <td>${negativeOrder[i]}</td>`;
-            for (let j = 1; j <= 4; j++) {
-                const playerScore = (score[`score${j}`] || getDefaultScore());
-                html += buildUnit(j, i, playerScore[negativeOrder[i]]);
-                html += buildUnit(j, i + n, playerScore[`festa${i + 1}`]);
-            }
-            html += '</tr>';
-        }
-        html += '</tbody>';
+        html += '</tr></thead>';
         return html;
     }
 
-    const buildUnit = (player, turn, playerScore) => {
-        let html = `<td data-player="${player}" data-turn="${turn}">`;
+    const buildUnit = (player, turn, playerScore, total) => {
+        let html = `<td class="relative text-center" data-player="${player}" data-turn="${turn}">`;
         if (turn < currentTurn) {
             html += playerScore || '---';
-        } else if (turn === currentTurn) {
+
+            if (turn === negativeOrder.length - 1 || turn === negativeOrder.length - 1 + numPlayers) {
+                html += `<div class="total">${total}</div>`;
+            }
+        } else if (turn === currentTurn && currentTurn < negativeOrder.length + numPlayers) {
             html += `
                 <div class="input text-center">
                     <input type="number" id="input_${player}" value="${playerScore || ''}">
                 </div>`;
         }
+
         html += '</td>';
 
         return html;
