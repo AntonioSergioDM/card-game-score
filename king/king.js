@@ -138,12 +138,13 @@ king = function () {
         const scrollArea = board.find('.scroll');
         const input = $('#input_1');
         if (input.length) {
-            // TODO this is not working.
             scrollArea.scrollTop(input.offset().top);
             input.trigger('focus').trigger('select');
         }
 
-        if (currentTurn >= negativeOrder.length) {
+        if (currentTurn >= negativeOrder.length + numPlayers) {
+            scrollArea.scrollTop(scrollArea.find('td').last().offset().top);
+        } else if (currentTurn >= negativeOrder.length) {
             $('#calculateBtnNulos').show();
         } else {
             $('#calculateBtnNulos').hide();

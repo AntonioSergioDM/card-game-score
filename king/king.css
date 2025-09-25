@@ -19,14 +19,17 @@ body {
     outline-color: var(--color-danger-active);
 }
 
-/*endregion*/
-
-/*region Actually styles for points*/
 .player {
     text-align: center;
     min-width: 90%;
     text-overflow: ellipsis;
+    font-size: inherit;
+    padding-bottom: 0;
+    padding-top: 0;
 }
+/*endregion*/
+
+/*region Actually styles for points*/
 
 .points {
     display: flex;
