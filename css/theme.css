@@ -401,8 +401,6 @@ input[type=number] {
 
 .board th,
 .board td {
-    vertical-align: top;
-    text-align: right;
     padding: 0.5rem;
     border-bottom: 3px solid currentColor;
     border-right: 3px solid currentColor;
