@@ -1,7 +1,7 @@
 import "./hearts.css";
 
 import $ from 'jquery';
-import {common} from "../js/common";
+import {common} from "../common";
 
 const hearts = function () {
     // Elements

@@ -1,7 +1,7 @@
 import "./king.css";
 
 import $ from "jquery";
-import {common} from "../js/common";
+import {common} from "../common";
 
 const king = function () {
     // Elements

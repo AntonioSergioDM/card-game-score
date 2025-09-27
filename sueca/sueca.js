@@ -1,7 +1,7 @@
 import "./sueca.css";
 
 import $ from "jquery";
-import {common} from "../js/common";
+import {common} from "../common";
 
 const sueca = function () {
     // Elements

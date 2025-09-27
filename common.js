@@ -1,4 +1,4 @@
-import "../css/theme.css";
+import "./theme.css";
 
 import $ from "jquery";
 

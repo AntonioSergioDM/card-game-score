@@ -1,7 +1,7 @@
 import "./sueca_italiana.css";
 
 import $ from "jquery";
-import {common} from "../js/common";
+import {common} from "../common";
 
 const suecaItaliana = function () {
     // Elements
