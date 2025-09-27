@@ -1,5 +1,8 @@
-const $ = jQuery.noConflict();
-common = function () {
+import "./theme.css";
+
+import $ from "jquery";
+
+export const common = function () {
     // Elements
     let loadPreviousHolder, loadPreviousBtn, startNewBtn, scoreHolder, menuBtn;
     // Values
@@ -116,7 +119,3 @@ common = function () {
         getScore: () => score,
     };
 }();
-
-$(() => {
-    common.init();
-});

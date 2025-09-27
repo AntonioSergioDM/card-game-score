@@ -9,29 +9,25 @@
     <link rel="shortcut icon" href="../assets/icons/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/apple-touch-icon.png" />
 
-    <script type="text/javascript" src="../js/jquery-3.7.1.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../css/theme.css?t=20250927165000">
-    <script type="text/javascript" defer src="../js/common.js?t=20250927165000"></script>
-
 <!----------- Game Specific Stuff in here ----------->
     <meta name="apple-mobile-web-app-title" content="King Score" />
-    <link rel="stylesheet" type="text/css" href="king.css?t=20250927165000">
-    <script type="text/javascript" defer src="king.js?t=20250927165000"></script>
+    <script type="module" src="king.js"></script>
     <title>King Score</title>
 </head>
 <body>
 <h1>King Score</h1>
 
-<!----------- Common Stuff ----------->
+<a class="button button--big button--back absolute absolute--secondish" target="_blank"
+   href="https://pt.wikipedia.org/wiki/King_(jogo_de_cartas)">
+<!----------- Common stuff ----------->
+    <img class="button__icon button__icon--big img--dark-reverse" src="../assets/help-button.svg" alt="How to play?">
+</a>
+
 <button class="button button--big button--back absolute absolute--startish" id="menuBtn">
     <img class="button__icon button__icon--big img--dark-reverse" src="../assets/back-button.svg" alt="back to menu">
 </button>
+
 <!----------- Game Specific Stuff in here ----------->
-<a class="button button--big button--back absolute absolute--secondish" target="_blank"
-   href="https://pt.wikipedia.org/wiki/King_(jogo_de_cartas)">
-    <!----------- Common stuff ----------->
-    <img class="button__icon button__icon--big img--dark-reverse" src="../assets/help-button.svg" alt="How to play?">
-</a>
 <div id="loadPreviousScore" data-game="sueca_italiana" class="section" style="display: none">
     <h2>Continue where you left off?</h2>
     <div class="section section--row">

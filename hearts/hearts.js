@@ -1,4 +1,9 @@
-hearts = function () {
+import "./hearts.css";
+
+import $ from 'jquery';
+import {common} from "../common";
+
+const hearts = function () {
     // Elements
     let gameHolder, board, undoBtn, numPlayers, numPoints;
 
@@ -8,6 +13,8 @@ hearts = function () {
     /* Initialization */
 
     const init = () => {
+        common.init();
+
         gameHolder = $('#newScore');
         board = $('#board');
         undoBtn = $('#undoBtn');
@@ -106,9 +113,9 @@ hearts = function () {
         inputs.each(function () {
             const player = +$(this).closest('td').data('player');
             score[`score${player}`] = score[`score${player}`] || getDefaultScore();
-            let currentScore = score[`score${player}`].pop();
+            let currentScore = !!score[`score${player}`].length && score[`score${player}`].pop();
 
-            if (currentScore === undefined) {
+            if (currentScore === false) {
                 currentScore = 0;
             } else {
                 score[`score${player}`].push(currentScore);
