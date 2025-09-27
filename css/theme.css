@@ -126,6 +126,12 @@ a {
     cursor: pointer;
 }
 
+.link {
+    position: absolute;
+    top:1rem;
+    right: 1rem;
+}
+
 /*region Input*/
 .input{
     display: flex;
@@ -438,6 +444,16 @@ input[type=number] {
 .absolute--startish {
     left: 1rem;
     top: 1rem;
+}
+
+.absolute--secondish {
+    right: 1rem;
+    top: 1rem;
+}
+
+.absolute--thirdish {
+    left: 1rem;
+    bottom: 1rem;
 }
 
 .absolute--endish {

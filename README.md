@@ -17,7 +17,7 @@ A webpage to act as a score sheet for different card games
 - King
   - [x] Totals
   - [x] Nulos
-  - [ ] ~~4-3-3-3 (not sure about doing this or not)~~
+  - ~~4-3-3-3 (not sure about doing this or not)~~
   - [x] Fix focus on inputs
 - Hearts
   - [x] Allow 5 player game
@@ -34,3 +34,4 @@ A webpage to act as a score sheet for different card games
   - [x] Fix logo (transparency, border)
   - [x] Change player name
   - [x] Fix go back btn!
+  - [x] Links for rules and variations
