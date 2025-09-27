@@ -1,4 +1,9 @@
-sueca = function () {
+import "./sueca.css";
+
+import $ from "jquery";
+import {common} from "../js/common";
+
+const sueca = function () {
     // Elements
     let gameHolder, inputHolder, undoBtn;
 
@@ -15,6 +20,8 @@ sueca = function () {
     /* Initialization */
 
     const init = () => {
+        common.init();
+
         gameHolder = $('#newScore');
         inputHolder = $('#inputHolder');
         undoBtn = $('#undoBtn');

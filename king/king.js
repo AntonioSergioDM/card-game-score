@@ -1,4 +1,9 @@
-king = function () {
+import "./king.css";
+
+import $ from "jquery";
+import {common} from "../js/common";
+
+const king = function () {
     // Elements
     let gameHolder, board, undoBtn;
 
@@ -46,6 +51,8 @@ king = function () {
     /* Initialization */
 
     const init = () => {
+        common.init();
+
         gameHolder = $('#newScore');
         board = $('#board');
         undoBtn = $('#undoBtn');

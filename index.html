@@ -17,8 +17,10 @@
 
     <link rel="manifest" href="assets/site.webmanifest">
 
-    <link rel="stylesheet" type="text/css" href="css/theme.css?t=20250927165000">
-    <link rel="stylesheet" type="text/css" href="css/menu.css?t=20250927165000">
+    <script type="module">
+        import "./css/theme.css";
+        import "./css/menu.css";
+    </script>
 
     <title>Card Game Score</title>
 </head>
@@ -27,22 +29,22 @@
 <img class="logo logo--big" src="assets/logo_original.svg" alt="logo">
 <div class="game__holder">
     <!-- Sueca -->
-    <a class="game__link" href="sueca">
+    <a class="game__link" href="sueca/">
         <img class="game__image" src="assets/sueca.webp" alt="Four players of Sueca">
         <span class="game__title">Sueca</span>
     </a>
     <!-- Sueca Italiana -->
-    <a class="game__link" href="sueca_italiana">
+    <a class="game__link" href="sueca_italiana/">
         <img class="game__image" src="assets/sueca_italiana.webp" alt="Five players of Sueca Italiana">
         <span class="game__title">Sueca Italiana</span>
     </a>
     <!-- King -->
-    <a class="game__link" href="king">
+    <a class="game__link" href="king/">
         <img class="game__image" src="assets/king.webp" alt="A game of King being played">
         <span class="game__title">King</span>
     </a>
     <!-- Hearts -->
-    <a class="game__link" href="hearts">
+    <a class="game__link" href="hearts/">
         <img class="game__image" src="assets/hearts.webp" alt="Four players of Hearts">
         <span class="game__title">Hearts</span>
     </a>

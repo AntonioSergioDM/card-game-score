@@ -1,4 +1,9 @@
-suecaItaliana = function () {
+import "./sueca_italiana.css";
+
+import $ from "jquery";
+import {common} from "../js/common";
+
+const suecaItaliana = function () {
     // Elements
     let gameHolder, board, undoBtn;
 
@@ -7,6 +12,8 @@ suecaItaliana = function () {
     /* Initialization */
 
     const init = () => {
+        common.init();
+
         gameHolder = $('#newScore');
         board = $('#board');
         undoBtn = $('#undoBtn');

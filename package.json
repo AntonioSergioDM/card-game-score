@@ -1,0 +1,37 @@
+{
+  "name": "card-game-score",
+  "version": "1.0.0",
+  "description": "A score board for multiple card games",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AntonioSergioDM/card-game-score.git"
+  },
+  "keywords": [
+    "Card",
+    "Game",
+    "Scoreboard",
+    "Sueca",
+    "King",
+    "Hearts",
+    "Sueca",
+    "Italiana"
+  ],
+  "author": "António Sérgio",
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/AntonioSergioDM/card-game-score/issues"
+  },
+  "homepage": "https://github.com/AntonioSergioDM/card-game-score#readme",
+  "devDependencies": {
+    "vite": "^7.1.7"
+  },
+  "dependencies": {
+    "jquery": "^3.7.1"
+  }
+}
