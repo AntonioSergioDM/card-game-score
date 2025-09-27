@@ -5,7 +5,7 @@ import { defineConfig } from 'vite';
 export default defineConfig({
     build: {
         // The output directory will be 'dist' in the project root.
-        outDir: 'dist',
+        outDir: 'docs',
         rollupOptions: {
             // Tell Vite about all your HTML entry points.
             input: {
