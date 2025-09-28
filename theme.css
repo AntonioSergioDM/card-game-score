@@ -120,6 +120,12 @@ body {
 h1 {
     font-size: 4rem;
 }
+@media (max-height: 800px) {
+    h1 {
+        display: block;
+        margin-top: 0;
+    }
+}
 
 a {
     color: var(--link-color);

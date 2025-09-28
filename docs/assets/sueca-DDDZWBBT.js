@@ -1,4 +1,4 @@
-import"./theme-D_5wOjCX.js";import{$ as o,c as r}from"./common-CDYXJDN2.js";const E=(function(){let u,y,_,v=!1,S=!1,T=!1,d=10;const b=20;let p=[];const B=()=>{r.init(),u=o("#newScore"),y=o("#inputHolder"),_=o("#undoBtn"),H()},H=()=>{setInterval(w,100),u.on("click",k),y.on("click",k),_.on("click",C),o("#restartBtn").on("click",x),o("#startNormalScore").on("click",()=>$("normal")),o("#startUnlimitedScore").on("click",I)},I=()=>{u.html(`
+import"./theme-BWL1am71.js";import{$ as o,c as r}from"./common-BlY3ihj5.js";const E=(function(){let u,y,_,v=!1,S=!1,T=!1,d=10;const b=20;let p=[];const B=()=>{r.init(),u=o("#newScore"),y=o("#inputHolder"),_=o("#undoBtn"),H()},H=()=>{setInterval(w,100),u.on("click",k),y.on("click",k),_.on("click",C),o("#restartBtn").on("click",x),o("#startNormalScore").on("click",()=>$("normal")),o("#startUnlimitedScore").on("click",I)},I=()=>{u.html(`
             <h2>How many points per game?</h2>
             <div class="input input--number player">
                 <input class="" id="unlimitedQty" type="number" value="${d}"/>
