@@ -1,17 +1,15 @@
-<!----------- Common Stuff ----------->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Sueca Italiana Score</title>
 
     <link rel="icon" type="image/png" href="../assets/favicon-96x96-C5aQqKk4.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="../assets/favicon-BPpWfgDF.svg" />
     <link rel="shortcut icon" href="../assets/favicon-_kEBhfQ0.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon-IdPUw7xc.png" />
 
-<!----------- Game Specific Stuff in here ----------->
     <meta name="apple-mobile-web-app-title" content="Sueca Italiana Score" />
-    <title>Sueca Italiana Score</title>
   <script type="module" crossorigin src="../assets/sueca_italiana-D7mUwi1h.js"></script>
   <link rel="modulepreload" crossorigin href="../assets/theme-BWL1am71.js">
   <link rel="modulepreload" crossorigin href="../assets/common-BlY3ihj5.js">
@@ -21,30 +19,34 @@
 <body>
 <h1>Sueca Italiana Score</h1>
 
-<!----------- Common Stuff ----------->
 <button class="button button--big button--back absolute absolute--startish" id="menuBtn">
     <img class="button__icon button__icon--big img--dark-reverse" src="data:image/svg+xml,%3c?xml%20version='1.0'%20encoding='iso-8859-1'?%3e%3c!--%20Uploaded%20to:%20SVG%20Repo,%20www.svgrepo.com,%20Generator:%20SVG%20Repo%20Mixer%20Tools%20--%3e%3c!DOCTYPE%20svg%20PUBLIC%20'-//W3C//DTD%20SVG%201.1//EN'%20'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3e%3csvg%20version='1.1'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%20viewBox='0%200%20219.151%20219.151'%20xml:space='preserve'%3e%3cg%3e%3cpath%20d='M109.576,219.151c60.419,0,109.573-49.156,109.573-109.576C219.149,49.156,169.995,0,109.576,0S0.002,49.156,0.002,109.575%20C0.002,169.995,49.157,219.151,109.576,219.151z%20M109.576,15c52.148,0,94.573,42.426,94.574,94.575%20c0,52.149-42.425,94.575-94.574,94.576c-52.148-0.001-94.573-42.427-94.573-94.577C15.003,57.427,57.428,15,109.576,15z'/%3e%3cpath%20d='M94.861,156.507c2.929,2.928,7.678,2.927,10.606,0c2.93-2.93,2.93-7.678-0.001-10.608l-28.82-28.819l83.457-0.008%20c4.142-0.001,7.499-3.358,7.499-7.502c-0.001-4.142-3.358-7.498-7.5-7.498l-83.46,0.008l28.827-28.825%20c2.929-2.929,2.929-7.679,0-10.607c-1.465-1.464-3.384-2.197-5.304-2.197c-1.919,0-3.838,0.733-5.303,2.196l-41.629,41.628%20c-1.407,1.406-2.197,3.313-2.197,5.303c0.001,1.99,0.791,3.896,2.198,5.305L94.861,156.507z'/%3e%3c/g%3e%3c/svg%3e" alt="back to menu">
 </button>
+
+
 <div id="loadPreviousScore" data-game="sueca_italiana" class="section" style="display: none">
     <h2>Continue where you left off?</h2>
     <div class="section section--row">
         <button class="button button--secondary" id="restoreScoreBtn">Restore Score</button>
         <button class="button button--primary" id="newScoreBtn">New Score</button>
     </div>
+    
 </div>
 <div id="newScore" class="section table-container" style="display: none">
-
-<!----------- Game Specific Stuff in here ----------->
-    <table id="board" class="board board--table"></table>
-    <div class="section mt-1">
-        <div class="section section--row">
-            <button class="button button--secondary" id="undoBtn">Undo</button>
-            <button class="button button--primary" id="calculateBtn">Calculate</button>
-        </div>
+    
+<table id="board" class="board board--table"></table>
+<div class="section mt-1">
+    <div class="section section--row">
+        <button class="button button--secondary" id="undoBtn">Undo</button>
+        <button class="button button--primary" id="calculateBtn">Calculate</button>
     </div>
-
-<!----------- Common stuff ----------->
 </div>
-<div class="footer"><a class="footer__link" href="https://github.com/AntonioSergioDM">&copy;2025 António Sérgio</a></div>
+</div>
+
+<div class="footer">
+    <a class="footer__link" href="https://github.com/AntonioSergioDM">
+        &copy;2025 António Sérgio
+    </a>
+</div>
 </body>
 </html>
