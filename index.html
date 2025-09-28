@@ -28,28 +28,11 @@
 <h1>Card Game Score</h1>
 <img class="logo" src="assets/logo_original.svg" alt="logo">
 <div class="game__holder">
-    <!-- Sueca -->
-    <a class="game__link" href="sueca/">
-        <img class="game__image" src="assets/sueca.webp" alt="Four players of Sueca">
-        <span class="game__title">Sueca</span>
-    </a>
-    <!-- Sueca Italiana -->
-    <a class="game__link" href="sueca_italiana/">
-        <img class="game__image" src="assets/sueca_italiana.webp" alt="Five players of Sueca Italiana">
-        <span class="game__title">Sueca Italiana</span>
-    </a>
-    <!-- King -->
-    <a class="game__link" href="king/">
-        <img class="game__image" src="assets/king.webp" alt="A game of King being played">
-        <span class="game__title">King</span>
-    </a>
-    <!-- Hearts -->
-    <a class="game__link" href="hearts/">
-        <img class="game__image" src="assets/hearts.webp" alt="Four players of Hearts">
-        <span class="game__title">Hearts</span>
-    </a>
+    {{#each context}}
+        {{>GameLink}}
+    {{/each}}
 </div>
 
-<div class="footer"><a class="footer__link" href="https://github.com/AntonioSergioDM">&copy;2025 António Sérgio</a></div>
+{{>Footer}}
 </body>
 </html>
