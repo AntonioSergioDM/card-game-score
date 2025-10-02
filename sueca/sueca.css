@@ -45,6 +45,17 @@
     width: 90px;
 }
 
+.pente {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    flex-shrink: 0;
+    height: 24px;
+    width: 70px;
+    left: -70px;
+    border-bottom: 2px solid var(--text-color);
+}
+
 .win {
     border-radius: 50%;
     position: absolute;
@@ -55,11 +66,13 @@
     outline: 1px solid var(--text-color);
 }
 
-.win--up {
+.win--up,
+.pente--up {
     top:-8px;
 }
 
-.win--down {
+.win--down,
+.pente--down {
     bottom:-8px;
 }
 

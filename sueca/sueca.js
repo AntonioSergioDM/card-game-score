@@ -259,13 +259,14 @@ const sueca = function () {
         return `<div class="unit"><div class="divider divider--horizontal"></div></div>`;
     }
 
-    const buildWinUnit = (position, addBandeira) => {
+    const buildWinUnit = (position, addBandeira, addPente) => {
         return `
             <div class="unit">
                 <div class="divider divider--horizontal"></div>
                 <div class="win win--${position}" data-player="${position === 'up' ? 1 : 2}">
                     ${addBandeira && buildBandeira(position) || ''}
                 </div>
+                ${addPente && buildPente(position === 'up' ? 'down' : 'up') || ''}
             </div>`;
     }
 
@@ -282,6 +283,13 @@ const sueca = function () {
         return `<div class="bandeira bandeira--${position} bandeira__pole">
                     <div class="bandeira__flag wave"></div>
                 </div>`;
+    }
+
+    const buildPente = (position) => {
+        return `<div class="pente pente--${position}" data-player="${position === 'up' ? 1 : 2}">
+                    ${'<div class="divider"></div>'.repeat(10)}
+                </div>
+                `;
     }
 
     /* Drawing Logic */
@@ -312,10 +320,10 @@ const sueca = function () {
                 // every fourth point means a game is over
                 if (scoreUp[i]) {
                     scoreUpTotal++;
-                    html += buildWinUnit('up', scoreUp[i] === 4);
+                    html += buildWinUnit('up', scoreUp[i] === 4, scoreDown.slice(i-3, i+1).reduce((a, b) => a + b, 0) === 0);
                 } else if (scoreDown[i]) {
                     scoreDownTotal++;
-                    html += buildWinUnit('down', scoreDown[i] === 4);
+                    html += buildWinUnit('down', scoreDown[i] === 4, scoreUp.slice(i-3, i+1).reduce((a, b) => a + b, 0) === 0);
                 } else {
                     html += buildEmptyUnit();
                 }
