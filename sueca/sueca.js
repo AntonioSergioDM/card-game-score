@@ -85,7 +85,8 @@ const sueca = function () {
         if (lastMove === undefined) {
             return;
         }
-        [lastPointTeam, lastPointPosition] = lastMove;
+        let lastPointTeam = lastMove[0];
+        let lastPointPosition = lastMove[1];
 
         const score = common.getScore();
         score['score' + lastPointTeam][lastPointPosition] = false;
@@ -124,6 +125,7 @@ const sueca = function () {
         const isLastPointOfSet = score.type !== 'unlimited'
             ? currentPosition % 4 === 0
             : currentPosition % score.unlimitedQty === 0;
+
         if (isMultiple === player) {
             if (isLastPointOfSet) {
                 console.log(score['score' + player]);
