@@ -53,7 +53,14 @@
     height: 24px;
     width: 70px;
     left: -70px;
+}
+
+.pente--up {
     border-bottom: 2px solid var(--text-color);
+}
+
+.pente--down {
+    border-top: 2px solid var(--text-color);
 }
 
 .win {
