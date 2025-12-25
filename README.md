@@ -35,3 +35,5 @@ A webpage to act as a score sheet for different card games
   - [x] Change player name
   - [x] Fix go back btn!
   - [x] Links for rules and variations
+ 
+  - [ ] mimic with translations
