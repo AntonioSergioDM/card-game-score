@@ -201,6 +201,17 @@ input[type=number] {
     touch-action: manipulation;
 }
 
+.button--big {
+    padding: 1rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    font-size: x-large;
+}
+
+.button--small {
+    font-size: large;
+}
+
 .button__icon {
     height: 1rem;
     width: 1rem;
@@ -515,6 +526,14 @@ input[type=number] {
 }
 .w-40 {
     width: 10rem;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.w-1\/2 {
+    width: 50vw;
 }
 /*endregion*/
 

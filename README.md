@@ -1,6 +1,14 @@
 # card-game-score
 A webpage to act as a score sheet for different card games
 
+## Scripts
+```shell
+  npm run dev
+```
+```shell
+  npm run build
+```
+
 ## Goals
 - Sueca
   - [x] Unlimited mode
@@ -28,6 +36,10 @@ A webpage to act as a score sheet for different card games
   - [x] Fix big table
   - [x] Fix change player name (not important)
   - [x] Mark how much points in total
+- Word Game (mimic)
+  - [x] Add teams
+  - [x] Multi-language/Multi-theme
+  - [x] Negative points on skip
 
 - General
   - ~~Use logo on back button (not important)~~
@@ -35,5 +47,3 @@ A webpage to act as a score sheet for different card games
   - [x] Change player name
   - [x] Fix go back btn!
   - [x] Links for rules and variations
- 
-  - [ ] mimic with translations
