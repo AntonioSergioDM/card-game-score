@@ -55,7 +55,10 @@ const mimic = function () {
                         score.currentPlayer = 1;
                     }
                 } else {
-                    word.html(`<div ${currentTime < 5 ? 'style="color: red;"' : ''}>${Math.ceil(currentTime)}</div><div>${currentWord}</div>`);
+                    word.html(`
+                        <div ${currentTime < 5 ? 'style="color: red;"' : ''}>${Math.ceil(currentTime)}</div>
+                        <div style="font-size: xx-large">${currentWord}</div>
+                    `);
                 }
             }, 100);
         } else {
