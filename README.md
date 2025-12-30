@@ -40,7 +40,7 @@ A webpage to act as a score sheet for different card games
   - [x] Add teams
   - [x] Multi-language/Multi-theme
   - [x] Negative points on skip
-  - [ ] More themes
+  - [x] More themes
 
 - General
   - ~~Use logo on back button (not important)~~
