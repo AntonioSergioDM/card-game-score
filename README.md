@@ -41,6 +41,7 @@ A webpage to act as a score sheet for different card games
   - [x] Multi-language/Multi-theme
   - [x] Negative points on skip
   - [x] More themes
+  - [ ] More themes v2 (jobs, disney/pixar, celebrities)
 
 - General
   - ~~Use logo on back button (not important)~~
