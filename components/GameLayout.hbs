@@ -20,10 +20,18 @@
 </button>
 
 {{#if howToPlay}}
-    <a class="button button--big button--back absolute absolute--secondish" target="_blank"
-       href="{{howToPlay}}">
+    <div class="button button--big button--back absolute absolute--secondish" data-how-to-play="{{howToPlay}}">
         <img class="button__icon button__icon--big img--dark-reverse" src="../assets/help-button.svg" alt="How to play?">
-    </a>
+    </div>
+    <div class="howToPlay__overlay">
+        <div class="howToPlay__box">
+            <div class="howToPlay__close-btn">X</div>
+            <h2 class="howToPlay__title">How to Play</h2>
+            <div class="howToPlay__intro"></div>
+            <div class="howToPlay__rules"></div>
+            <div class="howToPlay__conclusion"></div>
+        </div>
+    </div>
 {{/if}}
 
 <div id="loadPreviousScore" data-game="{{identifier}}" class="section" style="display: none">
@@ -32,12 +40,12 @@
         <button class="button button--secondary" id="restoreScoreBtn">Restore Score</button>
         <button class="button button--primary" id="newScoreBtn">New Score</button>
     </div>
-    {{loadPreviousScoreAppend}}
+    {{{loadPreviousScoreAppend}}}
 </div>
 <div id="newScore" class="section table-container" style="display: none">
-    {{newScore}}
+    {{{newScore}}}
 </div>
-{{afterNewScore}}
+{{{afterNewScore}}}
 {{>Footer}}
 </body>
 </html>

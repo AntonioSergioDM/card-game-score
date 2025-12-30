@@ -49,6 +49,9 @@ export const common = function () {
 
         // Common features
         scoreHolder.on('dblclick focus', rename);
+
+        // Rules
+        $('[data-how-to-play]').on('click', showRules)
     }
 
     const startRestoreObservers = () => {
@@ -109,6 +112,36 @@ export const common = function () {
 
         const json = JSON.stringify(object);
         localStorage.setItem(storageName, json);
+    }
+
+    const showRules = function () {
+        let howToPlay = $(this).data('how-to-play');
+
+        if (/^https?:\/\//.test(howToPlay)) {
+            window.open(howToPlay, '_blank');
+            return;
+        }
+
+        Object.keys(howToPlay).forEach((key) => {
+            let html = '';
+            if (Array.isArray(howToPlay[key])) {
+                html += '<ul>';
+                howToPlay[key].forEach((item) => {
+                    html += `<li>${item}</li>`;
+                });
+                html += '</ul>';
+            } else {
+                html = howToPlay[key];
+            }
+
+            $('.howToPlay__' + key).html(html);
+        });
+
+        const overlay = $('.howToPlay__overlay');
+
+        overlay.addClass('howToPlay__overlay--open');
+        $('.howToPlay__close-btn').on('click', () => overlay.removeClass('howToPlay__overlay--open'))
+
     }
 
     return {

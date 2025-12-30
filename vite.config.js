@@ -26,9 +26,7 @@ export default defineConfig({
                 context(pagePath) {
                     return context[pagePath] || {context: context};
                 },
-                compileOptions: {
-                    noEscape: true,
-                },
+
             }
         ),
     ],

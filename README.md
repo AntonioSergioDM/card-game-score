@@ -40,6 +40,7 @@ A webpage to act as a score sheet for different card games
   - [x] Add teams
   - [x] Multi-language/Multi-theme
   - [x] Negative points on skip
+  - [ ] More themes
 
 - General
   - ~~Use logo on back button (not important)~~
@@ -47,3 +48,5 @@ A webpage to act as a score sheet for different card games
   - [x] Change player name
   - [x] Fix go back btn!
   - [x] Links for rules and variations
+  - [x] Add Rules overlay
+  - [ ] Add Tailwind

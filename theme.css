@@ -1,6 +1,7 @@
 /*region Light theme variables (default) */
 :root {
     --bg-color: #fff;
+    --bg-secondary-color: #F0F0F0;
     --text-color: #000;
     --link-color: #007bff;
 
@@ -48,6 +49,7 @@
 @media (prefers-color-scheme: dark) {
     :root {
         --bg-color: #0a0a0a;
+        --bg-secondary-color: #2D2D2D;
         --text-color: #F0F0F0 ;
         --link-color: #66b3ff;
 
@@ -447,6 +449,78 @@ input[type=number] {
 
 .board tbody tr:last-child td {
     border-bottom: none;
+}
+/*endregion*/
+/*endregion*/
+
+/*region Overlays*/
+/*region HowToPlay*/
+.howToPlay__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+
+    backdrop-filter: blur(5px); /* Optional: Blurs the game behind it */
+
+    display: none;
+}
+
+.howToPlay__overlay--open {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.howToPlay__box {
+    position: relative;
+    background-color: var(--bg-secondary-color);
+    color: var(--text-color);
+    max-width: 80vw;
+    min-width: 40vw;
+    max-height: 80vh;
+    padding: 2rem 1.5rem;
+    box-sizing: border-box;
+    box-shadow: 0 0 0.7rem var(--text-color);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem
+}
+
+.howToPlay__close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 1;
+    padding: 2rem;
+    cursor: pointer;
+}
+
+.howToPlay__title {
+    text-align: center; /* Keeps text readable */
+}
+
+.howToPlay__intro,
+.howToPlay__rules,
+.howToPlay__conclusion {
+    width: 100%;
+    max-width: 600px; /* Prevents text from stretching too wide on desktop */
+    line-height: 1.6;
+    text-align: left; /* Keeps text readable */
+}
+
+.howToPlay__rules ul,
+.howToPlay__rules ol {
+    padding-left: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.howToPlay__rules li {
+    margin-bottom: 0.5rem;
 }
 /*endregion*/
 /*endregion*/
