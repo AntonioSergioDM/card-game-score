@@ -10,10 +10,10 @@
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon-IdPUw7xc.png" />
 
     <meta name="apple-mobile-web-app-title" content="Sueca Score" />
-  <script type="module" crossorigin src="../assets/sueca-CnZdA25z.js"></script>
-  <link rel="modulepreload" crossorigin href="../assets/theme-DiEPJMPV.js">
-  <link rel="modulepreload" crossorigin href="../assets/common--o21KHAa.js">
-  <link rel="stylesheet" crossorigin href="../assets/theme-Bc0e2M6D.css">
+  <script type="module" crossorigin src="../assets/sueca-C7qIMTAW.js"></script>
+  <link rel="modulepreload" crossorigin href="../assets/theme-xnCyEx_4.js">
+  <link rel="modulepreload" crossorigin href="../assets/common-92_0j6lW.js">
+  <link rel="stylesheet" crossorigin href="../assets/theme-D30ssz_s.css">
   <link rel="stylesheet" crossorigin href="../assets/sueca-p88qVO3F.css">
 </head>
 <body>
@@ -23,10 +23,18 @@
     <img class="button__icon button__icon--big img--dark-reverse" src="data:image/svg+xml,%3c?xml%20version='1.0'%20encoding='iso-8859-1'?%3e%3c!--%20Uploaded%20to:%20SVG%20Repo,%20www.svgrepo.com,%20Generator:%20SVG%20Repo%20Mixer%20Tools%20--%3e%3c!DOCTYPE%20svg%20PUBLIC%20'-//W3C//DTD%20SVG%201.1//EN'%20'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3e%3csvg%20version='1.1'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%20viewBox='0%200%20219.151%20219.151'%20xml:space='preserve'%3e%3cg%3e%3cpath%20d='M109.576,219.151c60.419,0,109.573-49.156,109.573-109.576C219.149,49.156,169.995,0,109.576,0S0.002,49.156,0.002,109.575%20C0.002,169.995,49.157,219.151,109.576,219.151z%20M109.576,15c52.148,0,94.573,42.426,94.574,94.575%20c0,52.149-42.425,94.575-94.574,94.576c-52.148-0.001-94.573-42.427-94.573-94.577C15.003,57.427,57.428,15,109.576,15z'/%3e%3cpath%20d='M94.861,156.507c2.929,2.928,7.678,2.927,10.606,0c2.93-2.93,2.93-7.678-0.001-10.608l-28.82-28.819l83.457-0.008%20c4.142-0.001,7.499-3.358,7.499-7.502c-0.001-4.142-3.358-7.498-7.5-7.498l-83.46,0.008l28.827-28.825%20c2.929-2.929,2.929-7.679,0-10.607c-1.465-1.464-3.384-2.197-5.304-2.197c-1.919,0-3.838,0.733-5.303,2.196l-41.629,41.628%20c-1.407,1.406-2.197,3.313-2.197,5.303c0.001,1.99,0.791,3.896,2.198,5.305L94.861,156.507z'/%3e%3c/g%3e%3c/svg%3e" alt="back to menu">
 </button>
 
-    <a class="button button--big button--back absolute absolute--secondish" target="_blank"
-       href="https://pt.wikipedia.org/wiki/Sueca_(jogo_de_cartas)">
+    <div class="button button--big button--back absolute absolute--secondish" data-how-to-play="https://pt.wikipedia.org/wiki/Sueca_(jogo_de_cartas)">
         <img class="button__icon button__icon--big img--dark-reverse" src="data:image/svg+xml,%3c?xml%20version='1.0'%20encoding='utf-8'?%3e%3c!--%20Uploaded%20to:%20SVG%20Repo,%20www.svgrepo.com,%20Generator:%20SVG%20Repo%20Mixer%20Tools%20--%3e%3csvg%20viewBox='0%200%2024%2024'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M12%2017H12.01M12%2014C12.8906%2012.0938%2015%2012.2344%2015%2010C15%208.5%2014%207%2012%207C10.4521%207%209.50325%207.89844%209.15332%209M12%2021C16.9706%2021%2021%2016.9706%2021%2012C21%207.02944%2016.9706%203%2012%203C7.02944%203%203%207.02944%203%2012C3%2016.9706%207.02944%2021%2012%2021Z'%20stroke='%23000000'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/svg%3e" alt="How to play?">
-    </a>
+    </div>
+    <div class="howToPlay__overlay">
+        <div class="howToPlay__box">
+            <div class="howToPlay__close-btn">X</div>
+            <h2 class="howToPlay__title">How to Play</h2>
+            <div class="howToPlay__intro"></div>
+            <div class="howToPlay__rules"></div>
+            <div class="howToPlay__conclusion"></div>
+        </div>
+    </div>
 
 <div id="loadPreviousScore" data-game="sueca" class="section" style="display: none">
     <h2>Continue where you left off?</h2>
