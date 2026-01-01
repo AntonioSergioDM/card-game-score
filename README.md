@@ -53,3 +53,4 @@ A webpage to act as a score sheet for different card games
   - [x] Links for rules and variations
   - [x] Add Rules overlay
   - [ ] Add Tailwind
+  - [ ] Add build as part of github actions
