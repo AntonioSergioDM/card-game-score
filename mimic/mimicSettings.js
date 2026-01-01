@@ -1,12 +1,12 @@
-import portugues from "./themes/portugues.json";
-import got from "./themes/game_of_thrones.json";
-import harryPotter from "./themes/harry_potter.json";
-import scyFy from "./themes/scy_fy.json";
 import lotr from "./themes/lotr.json";
-import pokemon from "./themes/pokemon.json";
+import scyFy from "./themes/scy_fy.json";
 import jobs from "./themes/jobs_pt.json";
-import animated from "./themes/animated_movies.json";
+import pokemon from "./themes/pokemon.json";
+import got from "./themes/game_of_thrones.json";
+import portugues from "./themes/portugues.json";
 import celebrities from "./themes/celebrities.json";
+import animated from "./themes/animated_movies.json";
+import harryPotter from "./themes/harry_potter.json";
 
 export const words = {
     "Portugues": portugues,
