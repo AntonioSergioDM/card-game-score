@@ -22,6 +22,7 @@ A webpage to act as a score sheet for different card games
   - [x] Add effects for `pente`
   - [x] Redesign multiple points
   - [x] Unlimited with adjustable qty
+  - [ ] When drawing a new game, draw the 3 lines at once
 - King
   - [x] Totals
   - [x] Nulos
@@ -41,7 +42,8 @@ A webpage to act as a score sheet for different card games
   - [x] Multi-language/Multi-theme
   - [x] Negative points on skip
   - [x] More themes
-  - [ ] More themes v2 (jobs, disney/pixar, celebrities)
+  - [x] More themes v2 (jobs, disney/pixar, celebrities)
+  - [ ] Make select prettier
 
 - General
   - ~~Use logo on back button (not important)~~
