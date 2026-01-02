@@ -43,7 +43,7 @@ A webpage to act as a score sheet for different card games
   - [x] Negative points on skip
   - [x] More themes
   - [x] More themes v2 (jobs, disney/pixar, celebrities)
-  - [ ] Make select prettier
+  - [x] Make select prettier
 
 - General
   - ~~Use logo on back button (not important)~~
