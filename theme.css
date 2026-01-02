@@ -200,7 +200,6 @@ input[type=number] {
     
     padding: 0.5rem 2.5rem 0.5rem 0.75rem;
     margin: 0;
-    width: 100%;
     cursor: pointer;
     outline: none;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -219,12 +218,11 @@ input[type=number] {
 
 /* Hover & Focus states using your Primary Active color */
 .select:hover {
-    border-color: var(--color-primary-hover);
+    box-shadow: 0 0 0 2px var(--color-primary-active);
 }
 
 .select:focus {
-    border-color: var(--color-primary-active);
-    box-shadow: 0 0 0 2px var(--color-primary-disabled-bg);
+    box-shadow: 0 0 0 2px var(--color-primary-active);
 }
 
 .select option {
@@ -683,5 +681,9 @@ input[type=number] {
 }
 .h-32 {
     height: 8rem;
+}
+
+.h-full {
+    height: 100%;
 }
 /*endregion*/

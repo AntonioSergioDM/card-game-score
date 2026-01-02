@@ -25,15 +25,15 @@ const mimicSettings = {
     identifier: 'mimic',
     title: 'Word Game',
     newScore: `
-<select id="language" class="select absolute absolute--thirdish">${Object.keys(words).map(lang => `<option value="${lang}">${lang}</option>`).join('')}</select>
-<table id="board" class="board board--table"></table>
-<div class="section mb-1 w-full">
-    <div class="section section--row w-full">
-        <button class="button button--big button--danger" id="skipBtn">Skip</button>
-        <div class="word" id="word">Confirm to start!</div>
-        <button class="button button--big button--primary" id="confirmBtn">Confirm</button>
+    <select id="language" class="select absolute absolute--thirdish">${Object.keys(words).map(lang => `<option value="${lang}">${lang}</option>`).join('')}</select>
+    <table id="board" class="board board--table"></table>
+    <div class="section mb-1 w-full">
+        <div class="section section--row w-full">
+            <button class="button button--big button--danger" id="skipBtn">Skip</button>
+            <div class="word" id="word">Confirm to start!</div>
+            <button class="button button--big button--primary" id="confirmBtn">Confirm</button>
+        </div>
     </div>
-</div>
 `,
     howToPlay: JSON.stringify({
         intro: 'Neste jogo de mimica, cada jogador tem 1 minuto para fazer mímica do máximo numero de palavras possível.',
