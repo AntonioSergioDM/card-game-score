@@ -25,7 +25,7 @@ const mimicSettings = {
     identifier: 'mimic',
     title: 'Word Game',
     newScore: `
-<select id="language" class="absolute absolute--thirdish">${Object.keys(words).map(lang => `<option value="${lang}">${lang}</option>`).join('')}</select>
+<select id="language" class="select absolute absolute--thirdish">${Object.keys(words).map(lang => `<option value="${lang}">${lang}</option>`).join('')}</select>
 <table id="board" class="board board--table"></table>
 <div class="section mb-1 w-full">
     <div class="section section--row w-full">
