@@ -122,12 +122,8 @@ const sueca = function () {
         score['score' + opponent][currentPosition] = score['score' + opponent][currentPosition] || false;
 
         // Multiple points (but can't have multiples after the final point of the game
-        const isLastPointOfSet = score.type !== 'unlimited'
-            ? currentPosition % 4 === 0
-            : currentPosition % score.unlimitedQty === 0;
-
         if (isMultiple === player) {
-            if (isLastPointOfSet) {
+            if (isLastPointOfSet(currentPosition, score)) {
                 console.log(score['score' + player]);
                 score['score' + player][currentPosition-1]++;
             } else {
@@ -151,9 +147,25 @@ const sueca = function () {
             isMultipleTimeout = setTimeout(() => isMultiple = false, 1000);
             isMultiple = player;
         }
-
         history.push([player, currentPosition]);
+
+        // Always draw an entire game
+        let position = currentPosition + 1;
+        while (!isLastPointOfSet(position, score)) {
+            score['score' + player][position] = score['score' + player][position] || false;
+            score['score' + opponent][position] = score['score' + opponent][position] || false;
+            position++;
+        }
+
         common.save(score);
+    }
+
+    const isLastPointOfSet = (currentPosition, score) => {
+        if (score.type === 'unlimited') {
+            return currentPosition % score.unlimitedQty === 0;
+        }
+
+        return currentPosition % 4 === 0;
     }
 
     const revert3Points = (player, currentPosition) => {
