@@ -51,7 +51,7 @@ export const common = function () {
         scoreHolder.on('dblclick focus', rename);
 
         // Rules
-        $('[data-how-to-play]').on('click', showRules)
+        $('[data-how-to-play]').off('click.rules').on('click.rules', showRules);
     }
 
     const startRestoreObservers = () => {
@@ -142,6 +142,8 @@ export const common = function () {
         overlay.addClass('howToPlay__overlay--open');
         $('.howToPlay__close-btn').on('click', () => overlay.removeClass('howToPlay__overlay--open'))
 
+        // In case of links inside
+        $('[data-how-to-play]').off('click.rules').on('click.rules', showRules);
     }
 
     return {
