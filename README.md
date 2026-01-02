@@ -22,7 +22,7 @@ A webpage to act as a score sheet for different card games
   - [x] Add effects for `pente`
   - [x] Redesign multiple points
   - [x] Unlimited with adjustable qty
-  - [ ] When drawing a new game, draw the 3 lines at once
+  - [x] When drawing a new game, draw the 3 lines at once
 - King
   - [x] Totals
   - [x] Nulos
